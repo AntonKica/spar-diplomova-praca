@@ -1,0 +1,23 @@
+@startuml
+object "aktívum" as asset {
+    kód
+    meno
+    popis
+    zodpovedná osoba
+} 
+
+object "biznisový proces" as business_process
+object "IT systém" as it_system
+object "IT aplikácia" as it_application
+object "komunikačný kanál" as communication_channel
+object "budova" as building
+object "miestnosť" as room
+
+
+asset <-- it_system
+asset <-- business_process 
+asset <-- it_application
+asset <-- communication_channel
+asset <-- building
+asset <-- room
+@enduml

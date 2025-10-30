@@ -1,0 +1,14 @@
+@startuml
+object "hrozba" as threat {
+    kód
+    meno
+    popis
+}
+
+object "elementárna hrozba" as elementary_threat
+object "špecifická hrozba" as specific_threat
+
+threat <-- elementary_threat
+threat <-- specific_threat
+
+@enduml

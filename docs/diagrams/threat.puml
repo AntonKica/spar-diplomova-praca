@@ -1,4 +1,4 @@
-@startuml
+@startuml "hrozba"
 object "hrozba" as threat {
     kód
     meno
@@ -11,4 +11,4 @@ object "špecifická hrozba" as specific_threat
 threat <-- elementary_threat
 threat <-- specific_threat
 
-@enduml
+@endumjdk21_headlessl

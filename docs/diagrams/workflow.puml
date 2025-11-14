@@ -1,0 +1,71 @@
+@startuml "Workflow"
+
+[*] --> step_1_selection_of_target_object_under_review
+step_1_selection_of_target_object_under_review --> step_2_threat_overview
+step_2_threat_overview --> step_3_risk_classification
+step_3_risk_classification --> step_4_risk_treatment
+step_4_risk_treatment --> step_5_risk_treatment_check
+
+state step_1_selection_of_target_object_under_review as "1. Výber cieľových objektov na preskúmanie" 
+step_1_selection_of_target_object_under_review : - podmnožina aktív
+step_1_selection_of_target_object_under_review : - majú spoločný charakter pre manažéra KB
+step_1_selection_of_target_object_under_review : - zoznam zavedených bezpečnostných opatrení
+step_1_selection_of_target_object_under_review : - zoznam evidovaných bezpečnostných incidentov
+
+state step_2_threat_overview as "2. Identifikácia relevantných hrozieb" {
+    state "a) elementárne hrozby" as elementary_threat_identification
+    elementary_threat_identification : 80% hrozieb, katalóg IT-Grundschutz kompendium
+    state "b) špecifické hrozby" as specific_threat_idenfitcation
+    specific_threat_idenfitcation : 20% špecifických hrozieb, tažko generalizovateľne
+}
+
+state step_3_risk_classification as "3. Klasifikǎcia rizika" {
+    state "3.1 posúdenie a vyhodnotenie rizika" as risk_assessment_and_evaluation
+    state "3.2 zosúladenie potenciálneho rizika" as risk_reconciliation
+    risk_assessment_and_evaluation --> risk_reconciliation : konvergujeme
+    risk_reconciliation --> risk_assessment_and_evaluation 
+
+    risk_assessment_and_evaluation : získame odhadované potenciálne riziko
+    risk_reconciliation : idenfitikácia nad/podhodnoteného potenciálneho rizika
+}
+
+state step_4_risk_treatment as "4. Ošetrenie rizika" {
+    state "a) vyhnutie" as risk_avoidance
+    risk_avoidance : Potrebné vysoké náklady, rozsiahlé zmeny.
+    risk_avoidance : - reštruktualizácia procesov
+    risk_avoidance : - zmena procesov
+    risk_avoidance : - zámena/vyňatie prvku
+    risk_avoidance : - pokryté iným opatrením
+    
+    state "b) modifikácia" as risk_reduction
+    risk_reduction : - zoznam opatrení na ošetrenie rizika
+    risk_reduction : - ošetrenie vzhľadom na CIA
+
+    state "c) prenesenie" as risk_transfer
+    risk_transfer : - outsorcovanie
+    risk_transfer : - poistenie
+    risk_transfer : - zoznam zmluvných nutných požiadavek
+
+    state "d) akceptovanie" as risk_acceptance
+    risk_acceptance : Úroveň rizika je akceptovateľna.
+
+    
+    state "náklady na ošetrenie" as risk_treatment_cost
+    risk_treatment_cost : Finančné alebo časové náklady.
+    risk_avoidance --> risk_treatment_cost 
+    risk_reduction --> risk_treatment_cost 
+    risk_transfer --> risk_treatment_cost 
+    risk_acceptance --> risk_treatment_cost 
+}
+
+state step_5_risk_treatment_check as "5. Kontrola ošetrenia rizík" {
+    state "a) funkčné opatrenie" as functional_risk_treatment
+    functional_risk_treatment : Zavedené ošetrenie rizika je efektívne.
+    state "b) nefunkčné opatrenie" as nonfunctional_risk_treatment
+    nonfunctional_risk_treatment : Zavedené ošetrenie rizika je neefektívne a je potrebné ho zmeniť/nahradiť.
+    state "c) čiastočne zavedené opatrenie" as partial_risk_treatment
+    partial_risk_treatment : Zavedené ošetrenie nie je implementované v plnom rozsahu.
+    state "d) nezavedené opatrenie" as not_implemented_risk_treatmenta
+    not_implemented_risk_treatmenta : Zavedené ošetrenie nie je implementované.
+}
+@enduml

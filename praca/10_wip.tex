@@ -1,0 +1,98 @@
+\begin{figure}[ht]
+\centering
+\hspace*{-2.0cm}
+\begin{tikzpicture}[
+    ahlevel/.style={
+        rectangle,
+        rounded corners=5pt,
+        minimum width=8cm,
+        minimum height=1.2cm,
+        text width=7cm,
+        align=center,
+        font=\sffamily\bfseries,
+        draw=#1!60!black,
+        top color=#1!15,
+        bottom color=#1!35,
+        text=#1!15!black,
+        line width=0.7pt,
+    },
+    bilink/.style={
+        {Stealth[length=3mm, width=2.5mm]}-{Stealth[length=3mm, width=2.5mm]},
+        line width=1pt,
+        color=gray!70!black,
+    },
+    linklabel/.style={
+        font=\sffamily\footnotesize\itshape,
+        text=gray!50!black,
+        fill=white,
+        inner sep=2pt,
+        rounded corners=2pt,
+    },
+    sidelabel/.style={
+        font=\sffamily\footnotesize,
+        text=#1,
+        rotate=90,
+    },
+    desc/.style={
+        font=\sffamily\footnotesize,
+        text=gray!50!black,
+        anchor=west,
+        text width=4.0cm,
+    },
+    desc2/.style={
+        font=\sffamily\normalsize,
+        text=#1,
+        anchor=west,
+        text width=4.5cm,
+    },
+]
+
+% Hierarchy levels (top to bottom)
+\node[ahlevel=Orange](L5) at (-1.0, 5.4) {Funkčný účel};
+\node[ahlevel=Orange](L4) at (-1.0, 3.6) {Abstraktná funkcia};
+\node[ahlevel=Orange](L3) at (-1.0, 1.8) {Zovšeobecnená funkcia};
+\node[ahlevel=Green] (L2) at (-1.0, 0.0) {Fyzická funkcia};
+\node[ahlevel=Green] (L1) at (-1.0,-1.8) {Fyzická forma};
+
+% Descriptions (right side)
+\node[desc] at (3.0, 5.4)
+    {Účel alebo ciele systému};
+\node[desc] at (3.0, 3.6)
+    {Princípy toku, rovnováhy a riadenia};
+\node[desc] at (3.0, 1.8)
+    {Procesy, interakcia komponentov};
+\node[desc] at (3.0, 0.0)
+    {Schopnosti, zaradenia a komponenty};
+\node[desc] at (3.0,-1.8)
+    {Dimenzie a fyzikálne vlastnosti prostredia};
+    
+\draw[loosely dotted, line width=2pt, color=black] 
+    (-6.0, 0.9) -- (11.6, 0.9);
+
+
+% left Side labels
+\node[sidelabel=Orange, anchor=south] at (-5.2, 3.6)  {koncepčná rovina};
+\node[sidelabel=Green, anchor=south] at (-5.2,-0.9)  {skutočná/reálna rovina};
+
+% left Side arrows (means-ends)
+\draw[{Stealth[length=2.5mm]}-{Stealth[length=2.5mm]}, line width=0.8pt, color=Orange!40] 
+    (-5.2, 6.3) -- (-5.2, 0.9);
+\draw[{Stealth[length=2.5mm]}-{Stealth[length=2.5mm]}, line width=0.8pt, color=Green!40] 
+    (-5.2, 0.9) -- (-5.2, -2.7);
+
+% right Side arrows (means-ends)
+\draw[{Stealth[length=2.5mm]}-{Stealth[length=2.5mm]}, line width=0.8pt, color=Orange!40] 
+    (7.5, 6.3) -- (7.5, 0.9);
+\draw[{Stealth[length=2.5mm]}-{Stealth[length=2.5mm]}, line width=0.8pt, color=Green!40] 
+    (7.5, 0.9) -- (7.5, -2.7);
+
+% left side labels
+\node[desc2=Orange] at (7.5, 3.6)
+    {\textbf{systemovo-orientovaná analýza rizík}};
+\node[desc2=Green] at (7.5, -0.9)
+    {\textbf{komponentovo-orientovaná analýza rizík}};
+
+\end{tikzpicture}
+    \caption{Rasmussenova hierarchia abstrakcie}
+\label{fig:abstraction-hierarchy}
+\end{figure}

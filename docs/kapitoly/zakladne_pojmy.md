@@ -1,0 +1,17 @@
+základné pojmy
+- odlišnosti sú najmä v tom, čo všetko zahŕňajú do tejto oblasti 
+- podrobnejšie rozoberala ENISA https://www.enisa.europa.eu/sites/default/files/publications/Cybersecurity_Definition_Gaps_v1_0.pdf
+- budeme vychádzať z https://mirri.gov.sk/wp-content/uploads/2022/02/KB-K1_2_3-uvod-do-KIB_slovnik_ver1.1.pdf
+    - kybernetická a informačná bezpečnosť (KIB) alebo kybernetická bezpečnosť alebo cybersecurity alebo cyber security je multi odborová disciplína, ktorá sa zaoberá skúmaním hrozieb voči informačným a komunikačným technológiám (IKT) v kybernetickom priestore a hľadaním spôsobov, ako zabrániť naplneniu týchto hrozieb
+    -  kybernetický priestor je súčasne súbor
+        - prepojení a vzťahov medzi objektami, ktoré sú dostupné prostredníctvom všeobecnej telekomunikačnú siete; a
+        - samostatných objektov, ktoré poskytujú rozhranie umožňujúce ich vzdialené ovládanie, vzdialený prístup k dátam alebo participovať sa na kontrolných činnostiach v rámci 
+    - digitálne informačné a komunikačné technológie (d-IKT) je súbor technických a programových prostriedkov určených na získavanie, ukladanie, spracovanie a šírenie digitálnej informácie
+    - informácie sú dáta/surové údaje, ktoré boli spracované do nám zmysluplnej podoby pomocou prostriedkov d-IKT 
+    - aktívum je čokoľvek, čo má pre jednotlivca/organizáciu hodnotu a je potreba ho chrániť, konkrétne v súlade s jeho potrebami voči dôvernosti, integrite a dostupnosti
+    - dôvernosť, ochrana voči prístupu nepovolaným osobám/stranám
+    - integrita, ochrana voči neoprávnenej, neželanej alebo nevedomej zmene
+    - dostupnosť, ochrana voči výpadkom, zabezpečenie prístupu  v žiadanom čase
+    - hrozba je potenciálna možnosť priamo alebo nepriamo narušiť CIA 
+    - riziko je hodnota vyplývajúca z pravdepodobnosti a dopadu naplnenia hrozby, vyhodnocuje sa kvantitatívne alebo kvalitatívne
+    - analýza rizík je proces pochopenia podstaty rizika a stanovenie úrovne rizika

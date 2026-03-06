@@ -17,12 +17,14 @@
 \usepackage{graphicx}
 \usepackage{pdfpages}
 \usepackage{url}
+\usepackage{xurl}
+\urlstyle{same}
 \usepackage[hidelinks,breaklinks]{hyperref}
 
 % tikz
 \usepackage[dvipsnames]{xcolor}
 \usepackage{tikz}
-\usetikzlibrary{positioning, arrows.meta, calc, shadows.blur, fit}
+\usetikzlibrary{positioning, arrows.meta, calc}
 
 
 
@@ -198,6 +200,7 @@ samostatne, a to s použitím literatúry uvedenej v priloženom zozname.
 
 \input 00_uvod.tex 
 \input 10_wip.tex 
+\input 10_analyzarizik.tex 
 \input 20_zaver.tex
 
 % -------------------
@@ -212,8 +215,8 @@ samostatne, a to s použitím literatúry uvedenej v priloženom zozname.
 \thispagestyle{empty}
 \clearpage
 \addcontentsline{toc}{chapter}{Literatúra}
-\bibliographystyle{plain}
-\bibliography{literatura} 
+\bibliographystyle{abstract}
+\bibliography{literatura}
 
 %---koniec Referencii
 

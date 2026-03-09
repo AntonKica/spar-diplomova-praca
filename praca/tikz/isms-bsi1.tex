@@ -1,0 +1,100 @@
+\newcommand{\steptitle}[1]{{\sffamily\small\bfseries #1}}
+\newcommand{\stepsub}[1]{{\sffamily\scriptsize\color{gray!40!black} #1}}
+
+\definecolor{ringcol}{gray}{0.75}
+\definecolor{centercol}{gray}{0.85}
+\def\outerR{4.8}
+\def\innerR{3.5}
+\def\centerR{1.2}
+\def\gap{0} % gap angle in degrees
+
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}[
+        step/.style={
+                rectangle,
+                rounded corners=5pt,
+                minimum width=7cm,
+                minimum height=1.2cm,
+                text width=6.5cm,
+                align=center,
+                font=\sffamily\bfseries,
+                draw=#1!60!black,
+                top color=#1!15,
+                bottom color=#1!35,
+                text=#1!15!black,
+                line width=0.7pt,
+        },
+        arr/.style={
+            -{Stealth[length=2.5mm, width=2mm]},
+            line width=0.8pt,
+            color=gray!70!black,
+        },
+        ]
+
+        % Parameters
+
+
+        % Left: Resources (135+gap/2 to 225-gap/2)
+        \fill[ringcol] 
+            ({135+\gap}:\innerR) arc ({135+\gap}:{225-\gap}:\innerR) -- 
+            ({225-\gap}:\outerR) arc ({225-\gap}:{135+\gap}:\outerR) -- cycle;
+
+        % Right: Employees (315+gap/2 to 405-gap/2 = 45-gap/2)
+        \fill[ringcol] 
+            ({315+\gap}:\innerR) arc ({315+\gap}:{405-\gap}:\innerR) -- 
+            ({405-\gap}:\outerR) arc ({405-\gap}:{315+\gap}:\outerR) -- cycle;
+
+
+
+        \node[step=ringcol] (C1) at (0, 3.5) 
+            {\steptitle{Manažerské princípy}
+             \stepsub{
+                \begin{itemize}[nosep]
+                    \item vytvotenie úloh a povinností KIB
+                    \item určenie cieľov KIB
+                    \item integrácia KIB do procesov organizácie
+                    \item vytvorenie komunikačných kanálov KIB
+                    \item dokumentiácia KIB
+                    \item posudzovanie a hodnotenie výkonností KIB
+                \end{itemize}
+                }
+             };
+             
+        \node[step=ringcol] (C2) at (-5,0.0) 
+            {\steptitle{Zdroje}
+             \stepsub{
+                \begin{itemize}[nosep]
+                    \item rozdelenie finančných, personálnych a časových prostriedkov
+                    \item \emph{cost-benefit analysis} pre naplnenie cieľov
+                \end{itemize}
+                }
+             };
+             
+        \node[step=ringcol] (C3) at (0,-3) 
+            {\steptitle{Zamestnanci}
+             \stepsub{
+                \begin{itemize}[nosep]
+                    \item roly a zodpovednosť
+                    \item zákonné povinnosti
+                    \item znalosti, vzdelávanie a zvyšovanie povedomia
+                \end{itemize}
+                }
+             };
+        \node[step=ringcol] (C4) at ( 5,0.0) 
+            {\steptitle{Bezpečnostný proces}
+             \stepsub{
+                \begin{itemize}[nosep]
+                    \item plánovanie bezpečnostného procesu
+                    \item vymedzenie roly a zodpovedností
+                    \item implementácia politiky KIB
+                    \item zlepšovanie KIB
+                \end{itemize}
+                }
+        };
+        \fill[centercol, rounded corners=3pt] (-\centerR,-\centerR) rectangle (\centerR,\centerR);
+        \node[font=\sffamily\bfseries\Large] at (0,0) {ISMS};
+    \end{tikzpicture}
+    \caption{ISMS popísaný \cite{BSI1}}
+    \label{fig:isms-bsi1}
+\end{figure}

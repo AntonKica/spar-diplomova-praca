@@ -1,0 +1,32 @@
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}[
+        step/.style={
+                rectangle,
+                rounded corners=5pt,
+                minimum width=7cm,
+                minimum height=1.2cm,
+                text width=6.5cm,
+                align=left,
+                font=\sffamily\bfseries,
+                draw=#1!60!black,
+                top color=#1!15,
+                bottom color=#1!35,
+                text=#1!15!black,
+                line width=0.7pt,
+        },
+        arr/.style={
+            -{Stealth[length=2.5mm, width=2mm]},
+            line width=0.8pt,
+            color=gray!70!black,
+        },
+        ]
+
+        \node[step=White] (C1) at (0, 0) {Štrukturovaná analýza  \\ \small analýza podmienok organizácie};
+        \node[step=RoyalBlue] (C2) at (0,-2) {Požiadavky na ochranu \\ \small analýza podmienok organizácie};
+        \node[step=RoyalBlue] (C3) at (0,-4) {Modelvanie};
+        \draw[arr] (C1.southeast) -- (C2.north);
+    \end{tikzpicture}
+    \caption{Štandradná ochrana}
+    \label{fig:risk-analysis-bsi3}
+\end{figure}

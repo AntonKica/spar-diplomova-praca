@@ -15,10 +15,12 @@ IT-Grundshutz je kompatibilný s medzinárodným štandardom ISO/IEC 27001 a org
 certifikovať podľa ISO 27001\footnote{Prečo nás to zaujíma je rozvinuté v kapitole \nameref{chap:zakony}}.
 
 \section{Filozofia štandardov BSI}
+\label{sec:bsiphilosophy}
+
 Štandardy BSI presadzujú tzv. holistický koncept informačnej bezpečnosti\footnote{Prívlastok holistický, resp.
 holizmus ako filozofický smer vychádza z presvedčenia, že skutočnosť môžme pochopiť iba ako väčší celok --- celok
 je viac, ako súčet jeho častí. Ide o opak redukcionizmu, ktorý vysvetľuje zložité skutočnosti jej rozkladom na 
-jednoduchšie ľahšie pochopiteľné časti \cite{WikiHolism}.}. Aby sme zaistili efektívnu informačnú bezpečnosť, musíme ju presadzovať
+jednoduchšie ľahko pochopiteľné časti \cite{WikiHolism}.}. Aby sme zaistili efektívnu informačnú bezpečnosť, musíme ju presadzovať
 na každej úrovni organizácie (počnúc vedením, cez procesy, zamestnancov až po samotné IT systémy a zariadenia).
 Spolková agentúra BSI analyzovala typické organizácie a identifikovala spoločné úlohy, procesy, problémy a ďalšie
 spoločné prvky, pričom došla k záveru, že malé a stredne veľké organizácie nemajú ľudské ani finančne zdroje na
@@ -36,7 +38,7 @@ V nasledujúcej časti zjednodušene popíšeme proces, ktorým môžeme systema
 Naším konečným cieľom je ukotviť analýzu rizík v kontexte tohto procesu.
 
 \section{System riadenia informačnej bezpečnosti --- ISMS}
-\label{chap:isms}
+\label{sec:isms}
 
 Informačne systémy sa nachádzajú v neustále meniacom sa kybernetickom priestore. Z tejto inherentnej vlastnosti vyplýva, že proces
 KIB musíme kontinuálne prispôsobovať zmenám, aby zostal aktuálny, efektívny a účinný. Manažérsky proces, ktorý formalizuje
@@ -54,8 +56,8 @@ informácie/rozhodnutia/problémy s vedením organizácie.
 
 \textbf{Finančné/personálne/časové zdroje} sú potrebné na efektívne splnenie cieľov KIB. Vedenie potrebuje
 nastaviť realistické ciele a na ich splnenie vymedziť potrebné zdroje. Vedenie tiež musí byť schopné robiť informované rozhodnutia,
-aby zbytočne neplýtvalo týmito zdrojmi\footnote{Príkladom môže byť drahé technické riešenie, prehnané administratívne zaťaženie
-alebo časovo-zdĺhavá implementácia opatrenia.}.
+aby zbytočne neplytvalo týmito zdrojmi (ako sú drahé technické riešenie, prehnané administratívne zaťaženie
+alebo časovo-zdĺhavá implementácia opatrenia).
 
 \textbf{Zamesntanci} sú neoddeliteľnou súčasťou organizácie, a preto sa musia aktívne zapájať do KIB. Každý zamestnanec je
 zaradený do roly KIB a musí vedieť, aké má povinnosti, ktoré zručnosti potrebuje mať a aké negatívne dôsledky môže mať
@@ -63,21 +65,63 @@ jeho správanie.
 
 \textbf{Bezpečnostný proces} slúži na udržiavanie primeranej úrovne KIB v organizácií. Riadi sa tzv.
 PDCA(\emph{angl. “Plan”, “Do”, “Check”, “Act”}) cyklom. Organizácia urči svoj stav a podmienky,
-v ktorých sa nachádza\footnote{Pre ilustráciu to je poslanie a štruktúra organizácie, strategický kontext alebo zainteresované
-tretie strany.}. Na základe týchto vstupov organizácia pomenuje bezpečnostné ciele a vypracuje politiku KIB, ktorá popisuje
+v ktorých sa nachádza (napr. poslanie a štruktúra organizácie, strategický kontext alebo zainteresované
+tretie strany). Na základe týchto vstupov organizácia pomenuje bezpečnostné ciele a vypracuje politiku KIB, ktorá popisuje
 význam KIB a určuje povinnosti v KIB. Ciele a politika KIB sú ďalej rozvinuté a implementované pomocou koncepcie KIB.
 Nakoniec organizácia posudzuje výkonnosť a efektívnosť bezpečnostného procesu (metriky, audit) a pravidelne zdokonaľuje určené
 ciele, politiku a koncepciu KIB.
 
 IT-Grundschutz poskytuje tri úrovne prístupu k ochrane aktív: základný (\emph{basic}), jadrový (\emph{core}) a štandardný
 (\emph{standard}). Voľba prístupu závisí od identifikovaných bezpečnostných požiadaviek.
+
 \textbf{Základná ochrana} formuje základy informačnej bezpečnosti, jej hlavným účelom je zaviesť základné bezpečnostné opatrenia,
 ktoré majú široký dosah. Vyžaduje si pomerne malé úsilie, a preto ju vieme pomerne rýchlo implementovať.
+
 \textbf{Jadrová ochrana} sústreďuje pozornosť na tzv. klenoty organizácie, ktorých narušenie môže ohrozovať existenciu organizácie. 
+
 \textbf{Štandardná ochrana} slúži na komplexnú ochranu všetkých častí organizácie, vyžaduje si ale väčšiu dávku úsilia a
-väčšie množstvo zdrojov. 
+väčšie množstvo zdrojov. Na obrázku \ref{fig:securuity-concept-bsi2} môžeme vidieť náčrt bezpečnostného konceptu pre
+{\color{NavyBlue}základnú (modrá)}, {\color{Orange}jadrovú (oranžová)} a {\color{Green}štandardnú (zelená)} ochranu,
+pre ľahšie porovnanie vzájomných rozdielov sme ich uložili vedľa seba.
 
 \include{tikz/standard-protection-bsi2}
 
+Teraz vysvetlíme bezpečnostný koncept pre štandardnú ochranu, až kým nedospejeme k analýze rizík.
+
+
 %\chapter{Analýza rizík trochu širšie}
-\input tikz/ras83-ra.tex
+%\input tikz/ras83-ra.tex
+
+\section{Analýza rizík podľa BSI 200-3}
+Analýza rizík je proces, ktorým ustanovujeme a ošetrujeme riziko. Podľa \cite{BSI3} tento proces pozostáva zo štyroch hlavných krokov a
+niekoľkých podkrokov (viď \ref{fig:risk-analysis-bsi3}).
+V časti \ref{sec:bsiphilosophy} sme naznačili, že BSI sa snaží \say{odbremeniť} malé a stredne veľké organizácie, čo môžeme vidieť aj v
+v tom, ako postupovali pri analýze rizík: rozdelili ju na dve časti, a to implicitnú a explicitnú.
+
+\input tikz/risk-analysis-bsi3.tex
+
+\textbf{Implicitná} časť analýzy rizík je tá, ktorú za nás vykonal BSI a je súčasťou IT-Grundshutz kompendia \cite{GSK}. BSI vybral
+najčastejšie\footnote{Podľa \cite{mngmtkib} je to 80\% spoločných aktív, zvyšných 20\% tvoria aktíva špecifické pre konkrétnu organizáciu.}
+aktíva, ktoré používa väčšina organizácii a pre ne vykonali analýzu rizík. Všetky potrebné informácie (popis, cieľ, rozsah, opatrenia) sú
+detailne obsiahnuté v moduloch \cite{GSK}.
+
+\textbf{Explicitná} časť analýzy rizík pokrýva tie aktíva, ktoré nemôžeme namapovať na žiaden modul \cite{GSK} alebo bezpečnostné opatrenia pre
+namapovaný modul \cite{GSK} neposkytujú dostatočnú ochranu. Návod, ako môžeme vykonať explicitnú analýzu rizík pre aktívum popisuje \cite{BSI3}.
+Vo zvyšnej časti práce budeme pojmom analýza rizík referovať na \emph{explictnú analýzu rizík}, pokiaľ explicitne neuvedieme, že referejueme na
+\emph{implicitnú analýzu rizík}.
+
+Samotný proces analýzy rizík má niekoľko predpokladov, ktoré potrebujeme splniť pred jej začatím \cite{BSI2}:
+\begin{itemize}[nosep]
+    \item inicializácia systematického procesu KIB
+    \item určenie rozsahu bezpečnostného konceptu, t.j. určenie informačného systému
+    \item vypracovanie štrukturovanej analýzy informačného systému
+    \item posúdenie bezpečnostných požiadaviek na aktíva
+    \item modelovanie aktív na moduly IT-Grundschutz \cite{GSK}
+    \item vykonanie kontroly IT-Grundschutz
+\end{itemize}
+
+Postupnou implementáciou bezpečnostného konceptu sa dopracujeme ku kroku \emph{IT-Grundschutz check}, z ktorého nám vypadnú tzv. cieľové objekty
+podliehajúce kontrole (\emph{angl. target objects under review}). Inými slovami sú to cieľové aktíva, voči ktorým potrebujeme explicitne vykonať
+analýzu rizík.
+
+\section{A čo manažment rizík}

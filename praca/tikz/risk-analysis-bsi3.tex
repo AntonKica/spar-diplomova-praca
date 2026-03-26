@@ -1,6 +1,5 @@
 \newcommand{\steptitle}[1]{{\sffamily\small\bfseries #1}}
 \newcommand{\stepsub}[1]{{\sffamily\scriptsize\color{gray!40!black} #1}}
-
 \begin{figure}[ht]
     \centering
     \begin{tikzpicture}[
@@ -28,27 +27,27 @@
         \node[step=RoyalBlue] (S1) at (0, 0) 
             {\steptitle{1. Vypracovanie prehľadu hrozieb}
              \stepsub{
-                \begin{itemize}[nosep]
+                \begin{enumerate}[nosep]
                     \item zoznam elementárnych hrozieb
                     \item určenie dodatočných hrozieb
-                \end{itemize}
+                \end{enumerate}
                 }
              };
              
         \node[step=RoyalBlue] (S2) at (0,-2.0) 
             {\steptitle{2. Klasifikácia rizika}
              \stepsub{
-                \begin{itemize}[nosep]
+                \begin{enumerate}[nosep]
                     \item posúdenie rizika
                     \item vyhodnotenie rizika
-                \end{itemize}
+                \end{enumerate}
                 }
              };
              
         \node[step=RoyalBlue] (S3) at (0,-4.5) 
             {\steptitle{3. Ošetrenie rizika}
              \stepsub{
-                \begin{itemize}[nosep]
+                \begin{enumerate}[nosep,label=\alph*)]
                     \item vyhnutie sa riziku
                     \item redukcia rizika
                     \item prenesenie rizika
@@ -61,6 +60,6 @@
         \draw[arr] (S2.south) -- (S3.north);
         \draw[arr] (S3.south) -- (S4.north);
     \end{tikzpicture}
-    \caption{Analýza rizík popísaná \cite{BSI3}}
+    \caption{Analýza rizík \cite{BSI3}}
     \label{fig:risk-analysis-bsi3}
 \end{figure}

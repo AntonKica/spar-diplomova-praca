@@ -1,0 +1,96 @@
+\definecolor{cellgreen}{RGB}{34,170,79}
+\definecolor{celllightgreen}{RGB}{141,198,63}
+\definecolor{cellyellow}{RGB}{255,237,0}
+\definecolor{cellred}{RGB}{228,30,38}
+
+\begin{figure}[!h]
+    \centering
+    \begin{tikzpicture}
+
+        % Cell size (halved from original 3.0/2.0)
+        \def\cw{1.5}
+        \def\ch{1.5}
+        % Padding between cells
+        \def\pad{0.08}
+
+        % Helper: draw a padded filled rectangle
+        % #1=color, #2=col(0-3), #3=row(0-3)
+        \newcommand{\cell}[3]{%
+            \fill[#1, rounded corners=1pt]
+            ({#2*\cw+\pad}, {#3*\ch+\pad})
+            rectangle
+            ({(#2+1)*\cw-\pad}, {(#3+1)*\ch-\pad});
+            \draw[black, rounded corners=1pt]
+            ({#2*\cw+\pad}, {#3*\ch+\pad})
+            rectangle
+            ({(#2+1)*\cw-\pad}, {(#3+1)*\ch-\pad});
+        }
+
+        % --- Row 1 (bottom): negligible ---
+        \cell{cellgreen}{0}{0}
+        \cell{cellgreen}{1}{0}
+        \cell{cellgreen}{2}{0}
+        \cell{cellgreen}{3}{0}
+
+        % --- Row 2: limited ---
+        \cell{cellgreen}{0}{1}
+        \cell{cellgreen}{1}{1}
+        \cell{celllightgreen}{2}{1}
+        \cell{cellyellow}{3}{1}
+
+        % --- Row 3: significant ---
+        \cell{celllightgreen}{0}{2}
+        \cell{celllightgreen}{1}{2}
+        \cell{cellyellow}{2}{2}
+        \cell{cellred}{3}{2}
+
+        % --- Row 4 (top): life-threatening ---
+        \cell{celllightgreen}{0}{3}
+        \cell{cellyellow}{1}{3}
+        \cell{cellred}{2}{3}
+        \cell{cellred}{3}{3}
+
+        % --- Cell labels ---
+        % Row 1
+        \node[font=\scriptsize\bfseries, text=white] at (0.5*\cw, 0.5*\ch) {nízke};
+        \node[font=\scriptsize\bfseries, text=white] at (1.5*\cw, 0.5*\ch) {nízke};
+        \node[font=\scriptsize\bfseries, text=white] at (2.5*\cw, 0.5*\ch) {nízke};
+        \node[font=\scriptsize\bfseries, text=white] at (3.5*\cw, 0.5*\ch) {nízke};
+        % Row 2
+        \node[font=\scriptsize\bfseries, text=white] at (0.5*\cw, 1.5*\ch) {nízke};
+        \node[font=\scriptsize\bfseries, text=white] at (1.5*\cw, 1.5*\ch) {nízke};
+        \node[font=\scriptsize\bfseries] at (2.5*\cw, 1.5*\ch) {stredné};
+        \node[font=\scriptsize\bfseries] at (3.5*\cw, 1.5*\ch) {vysoké};
+        % Row 3
+        \node[font=\scriptsize\bfseries] at (0.5*\cw, 2.5*\ch) {stredné};
+        \node[font=\scriptsize\bfseries] at (1.5*\cw, 2.5*\ch) {stredné};
+        \node[font=\scriptsize\bfseries] at (2.5*\cw, 2.5*\ch) {vysoké};
+        \node[font=\scriptsize\bfseries, text=white, align=center] at (3.5*\cw, 2.5*\ch) {veľmi\\vysoké};
+        % Row 4
+        \node[font=\scriptsize\bfseries] at (0.5*\cw, 3.5*\ch) {stredné};
+        \node[font=\scriptsize\bfseries] at (1.5*\cw, 3.5*\ch) {vysoké};
+        \node[font=\scriptsize\bfseries, text=white, align=center] at (2.5*\cw, 3.5*\ch) {veľmi\\vysoké};
+        \node[font=\scriptsize\bfseries, text=white, align=center] at (3.5*\cw, 3.5*\ch) {veľmi\\vysoké};
+
+        % --- Y-axis ---
+        \draw[thick, -stealth] (-0.1, -0.1) -- (-0.1, 4*\ch+0.4);
+        \node[anchor=south, font=\scriptsize\bfseries, align=center] at (-0.1, 4*\ch+0.4) {potenciálny dopad};
+
+        \node[anchor=east, font=\scriptsize] at (-0.2, 0.5*\ch) {zanedbateľný};
+        \node[anchor=east, font=\scriptsize] at (-0.2, 1.5*\ch) {limitovaný};
+        \node[anchor=east, font=\scriptsize] at (-0.2, 2.5*\ch) {signifikantný};
+        \node[anchor=east, font=\scriptsize, align=right] at (-0.2, 3.5*\ch) {života-\\ohrozujúci};
+
+        % --- X-axis ---
+        \draw[thick, -stealth] (-0.1, -0.1) -- (4*\cw+0.4, -0.1);
+        \node[anchor=west, font=\scriptsize\bfseries, align=center] at (4*\cw+0.4, -0.2) {frekvencia\\výskytu};
+
+        \node[anchor=north, font=\scriptsize] at (0.5*\cw, -0.15) {zriedkavo};
+        \node[anchor=north, font=\scriptsize] at (1.5*\cw, -0.15) {stredne};
+        \node[anchor=north, font=\scriptsize] at (2.5*\cw, -0.15) {často};
+        \node[anchor=north, font=\scriptsize] at (3.5*\cw, -0.15) {veľmi často};
+
+    \end{tikzpicture}
+    \caption{Matica rizík, na osi x frekvencia výskytu (rastie v smere šípky), na osi y potenciálny dopad (rastie v smere šípky), bunka vyjadruje potenciálny dopad hrozby \cite{BSI3}.}
+    \label{fig:risk-matrix-bsi3}
+\end{figure}

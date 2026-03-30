@@ -155,17 +155,140 @@ Relevantnosť základnej hrozby vyjadrujeme v troch mierach irelevantná, nepria
          \hline
          \textbf{irelevantná} & nemá žiaden & vylúčená \\ 
          \hline
-         \textbf{nepriamo relevantná} & cez iné aktívum & vylúčená, ošetrená na o úroveň vyššie  \\ 
+         \textbf{nepriamo relevantná} & cez iné aktívum & vylúčená, ošetrená priamo iným opatrením  \\ 
          \hline
          \textbf{relevantná} & priamy & zaradená do analýzy rizík \\ 
          \hline
         \end{tabular}
     \end{center}
 \end{table}
-Dodatočné špecifické hrozby vyplývajú z unikátnych podmienok, v ktorých sa aktívum nachádza. Pred tým, ako sformulujeme špecifickú hrozbu, by sme mali zvážiť to, či nová
-hrozba má potenciál spôsobiť významnú škodu a či je realistická v kontexte využitia nášho aktíva\footnote{Množinu relevantných hrozieb sa snažíme minimalizovať, aby sme
-udržali rozsah na rozumnej a zvládnuteľnej úrovni s ohľadom na ďalšie kroky analýzy rizík.}.
+Dodatočné špecifické hrozby vyplývajú z unikátnych podmienok, v ktorých sa aktívum nachádza. Pred tým, ako sformulujeme špecifickú hrozbu,
+by sme mali zvážiť to, či nová hrozba má potenciál spôsobiť významnú škodu a či je realistická v kontexte využitia nášho aktíva\footnote{
+Množinu relevantných hrozieb sa snažíme minimalizovať, aby sme udržali rozsah na rozumnej a zvládnuteľnej úrovni s ohľadom na ďalšie kroky
+analýzy rizík.}.
 
-\subsection*{Určenie relevantných hrozieb pre fiktívne aktívum}
+\subsection*{Určenie relevantných hrozieb: fiktívny scenár}
 
+Pri podrobnejšej inšpekcii procesu olympiád sme zistili, že pri výjazde na súťažné kolo si zamestnanci nesú pracovné notebooky so sebou.
+Počas tohto výjazdu prichádzajú do styku s mnohými účastníkmi sútaže a technickými prvkami, ktoré majú potenciál negatívneho dopadu na
+základné hodnoty CIA notebooku. Určenie relevantných základných hrozieb sme zhrnuli\footnote{Hrozby už identifikované \cite{GSK}, ani
+irelevantné hrozby explicitne neuvádzame.} do tabuľky \ref{tab:elemthreatid}.
+\begin{table}[h!]
+    \caption{Identifikované základné hrozby}
+    \label{tab:elemthreatid}
+    \begin{center}
+        \footnotesize
+        \begin{tabular}{ |p{0.35\textwidth}|p{0.09\textwidth}|p{0.56\textwidth}| }
+        \hline
+        hrozba & dopad & poznámka \\
+        \hline
+        \hline
+        G 0.25 Sociálne inžinierstvo & nepriamy & Hrozba G 0.25 by umožnila naplniť hrozby G 0.19 Zverejnenie citlivých informácií alebo G 0.30,
+        no samotný laptop neposkytuje žiadne bezpečnostné opatrenia pred sociálnym inžinierstvom, preto ju považujeme za nepriamu.  \\
+        \hline
+        G 0.30 Neoprávnené používanie alebo správa zariadení a systémov & priamy &  Hrozba G 0.30 priamo vplýva na laptop, preto musíme
+        skontrolovať bezpečnostné opatrenia voči G 0.30.\\
+        \hline
+        \end{tabular}
+    \end{center}
+\end{table}
+
+Podobne sme postupovali pri identifikácií dodatočných špecifických hrozieb v tabuľke \ref{tab:specthreatid}. V popise explicitne uvádzame,
+z ktorých ďalších hrozieb vychádzame, čo ale nie je potrebné.
+\begin{table}[h!]
+    \caption{Identifikované špecifické hrozby}
+    \label{tab:specthreatid}
+    \begin{center}
+        \footnotesize
+        \begin{tabular}{ |p{0.20\textwidth}|p{0.80\textwidth}| }
+        \hline
+        hrozba & popis \\
+        \hline
+        \hline
+        T z.1 Poškodenie zariadení v súťažnom prostredí &
+        \parbox[t]{0.80\textwidth}{
+        Notebooky sa vyskytujú v prítomnosti chaotického súťažného prostredia, kde sú vystavené náhlym a rýchlym pohybom alebo koncentrovanému
+        množstvu tekutín a prachových častíc. \\\\ Táto dodatočná špecifická hrozba rozvíja základnú hrozbu G 0.4 Znečistenie, prach, korózia 
+        }\\
+
+        \hline
+        T z.2 Manipulácia v súťažnom prostredí &
+        \parbox[t]{0.80\textwidth}{
+        V súťažnom prostredí môžu účastníci (učitelia, súťažiaci, pomocníci) dočasne získať príležitosť nedovoleného prístupu k notebooku, čím
+        môžu kompromitovať integritu alebo dostupnosť dôverných informácií. \\\\ Táto dodatočná špecifická hrozba rozvíja základne hrozby 
+        G 0.19 Zverejnenie citlivých informácií a G 0.22 Manipulácia s informáciami 
+        }\\
+        \hline
+        \end{tabular}
+    \end{center}
+\end{table}
+Keď máme zostavený zoznam relevantných hrozieb, ďalším krokom je klasifikácia rizík, ktoré z identifikovaných hrozieb vyplývajú.
+
+\section{Klasifikácia rizík}
+
+Najčastejšie vyjadrujeme riziko ako strednú hodnotu dopadu hrozby, t.j. $riziko = pravdepodobnosť * dopad hrozby$ \cite{MFSRIB}, neexistuje
+univerzálny spôsob, ako určiť hodnotu týchto premenných. Pri určovaní dopadu môžeme brať do úvahy potenciálne finančné následky, priamy a
+latentný dopad na okolie alebo úsilie potrebne na nápravu a odstránenie škody, pri určovaní pravdepodobnosti môžem vychádzať z vlastných skúseností 
+alebo štatistiky\footnote{Treba si však dať pozor, nakoľko výsledky štatistiky sú závisle od kontextu a interpretácia jej výsledkov  môže
+byť subjektívna.}. Vo všeobecnosti na vyjadrenie rizika používame dve metódy kvalitatívnu a kvantitatívnu, štandardy BSI využívajú tú prvú,
+no vysvetlíme oboje.
+
+\textbf{Kvantitatívna metóda} vyjadruje hodnotu číselne ($interval <0,1>$), avšak problémom je presne číselne vyjadriť pravdepodobnosť a dopad
+v špecifickom kontexte našej organizácie, problematické sa môžu javiť nasledovné otázky \cite{MFSRIB}:
+\begin{itemize}[nosep]
+    \item ako vyjadriť pravdepodobnosť udalosti, ktorá ešte nikdy nenastala?
+    \item ako vyjadriť hodnotu nehmotných aktív?
+\end{itemize}
+
+\textbf{Kvalitatívna metóda} vyjadruje hodnotu slovne, IT-Grundschutz používa $4x4x4$ úrovní, v poradí pravdepodobnosť (\ref{tab:thrfreq}),
+dopadu (\ref{tab:thrdmg}) a riziko (\ref{tab:thrimp}) \footnote{Samozrejme, pre našu organizáciu môže mať zmysel uvažovať aj nad menším/väčším
+počtom úrovni (napr. $3x3x3$), ak to umožni sprehľadniť proces analýzy rizík.}.
+\begin{table}[h!]
+    \caption{Úrovne pravdepodobnosti}
+    \label{tab:thrfreq}
+    \begin{center}
+        \footnotesize
+        \begin{tabular}{ |p{0.20\textwidth}|p{0.80\textwidth}| }
+        \hline
+        hrozba & popis \\
+        \hline
+        \hline
+        \hline
+        \end{tabular}
+    \end{center}
+\end{table}
+
+\begin{table}[h!]
+    \caption{Úrovne poškodenia}
+    \label{tab:thrdmg}
+    \begin{center}
+        \footnotesize
+        \begin{tabular}{ |p{0.20\textwidth}|p{0.80\textwidth}| }
+        \hline
+        hrozba & popis \\
+        \hline
+        \hline
+        \hline
+        \end{tabular}
+    \end{center}
+\end{table}
+
+\begin{table}[h!]
+    \caption{Úrovne dopadu}
+    \label{tab:thrimp}
+    \begin{center}
+        \footnotesize
+        \begin{tabular}{ |p{0.20\textwidth}|p{0.80\textwidth}| }
+        \hline
+        hrozba & popis \\
+        \hline
+        \hline
+        \hline
+        \end{tabular}
+    \end{center}
+\end{table}
+
+Nakoniec vzťah pravdepodobnosti, potenciálnej škody a potenciálneho dopadu vyjadríme v maticou klasifikácie rizík \ref{fig:risk-matrix-bsi3}.
+\input{tikz/risk-matrix-bsi3.tex}
+         
 \section{A čo manažment rizík}

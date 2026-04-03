@@ -243,46 +243,67 @@ v špecifickom kontexte našej organizácie, problematické sa môžu javiť nas
 \textbf{Kvalitatívna metóda} vyjadruje hodnotu slovne, IT-Grundschutz používa $4x4x4$ úrovní, v poradí pravdepodobnosť (\ref{tab:thrfreq}),
 dopadu (\ref{tab:thrdmg}) a riziko (\ref{tab:thrimp}). Prirodzene, v organizácii si počet a význam úrovní potrebujem prispôsobiť svojím vlastným
 podmienkam a potrebám. 
-\begin{table}[h!]
-    \caption{Úrovne pravdepodobnosti}
+\begin{table}[!h]
+    \caption{Frekvencia výskytu}
     \label{tab:thrfreq}
     \begin{center}
         \footnotesize
         \begin{tabular}{ |p{0.20\textwidth}|p{0.80\textwidth}| }
         \hline
-        hrozba & popis \\
+        úroveň & popis \\
         \hline
         \hline
+        zriedkavo & najviac každých 5 rokov \\
+        \hline
+        stredne & raz za 1-5 rokov \\
+        \hline
+        často & raz za mesiac \\
+        \hline
+        veľmi často & niekoľkokrát do mesiaca  \\
         \hline
         \end{tabular}
     \end{center}
 \end{table}
 
-\begin{table}[h!]
-    \caption{Úrovne poškodenia}
+\begin{table}[!h]
+    \caption{Potenciálny dopad}
     \label{tab:thrdmg}
     \begin{center}
         \footnotesize
         \begin{tabular}{ |p{0.20\textwidth}|p{0.80\textwidth}| }
         \hline
-        hrozba & popis \\
+        úroveň & popis \\
         \hline
         \hline
+        zanedbateľný & účinky poškodenia sú nízke a môžme ich zanedbať  \\
+        \hline
+        limitovaný & účinky poškodenia sú obmedzené ale zvládnuteľné \\
+        \hline
+        signifikantný & účinky poškodenia sú významné  \\
+        \hline
+        života-ohrozujúci & účinky poškodenia môžu byť katastrofálne a ohrozovať existenciu organizácie \\
         \hline
         \end{tabular}
     \end{center}
 \end{table}
 
-\begin{table}[h!]
-    \caption{Úrovne dopadu}
+\begin{table}[!h]
+    \caption{Riziko}
     \label{tab:thrimp}
     \begin{center}
         \footnotesize
         \begin{tabular}{ |p{0.20\textwidth}|p{0.80\textwidth}| }
         \hline
-        hrozba & popis \\
+        úroveň & popis \\
         \hline
         \hline
+        nízke & navrhnuté alebo implementované bezpečnostné opatrenia poskytujú dostatočnú ochranu \\
+        \hline
+        stredné & navrhnuté alebo implementované bezpečnostné opatrenia nemusia byť dostatočné \\
+        \hline
+        vysoké & navrhnuté alebo implementované bezpečnostné opatrenia poskytujú dostatočnú ochranu \\
+        \hline
+        veľmi vysoké & navrhnuté alebo implementované bezpečnostné opatrenia poskytujú dostatočnú ochranu, v praxi sú málokedy akceptované \\
         \hline
         \end{tabular}
     \end{center}
@@ -291,4 +312,3 @@ podmienkam a potrebám.
 Nakoniec vzťah pravdepodobnosti, potenciálnej škody a potenciálneho dopadu vyjadríme v maticou klasifikácie rizík \ref{fig:risk-matrix-bsi3}.
 \input{tikz/risk-matrix-bsi3.tex}
          
-\section{A čo manažment rizík}

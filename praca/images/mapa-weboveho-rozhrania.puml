@@ -1,0 +1,43 @@
+@startwbs
+
+<style>
+WBSDiagram {
+  node {
+    .ocean {
+      BackgroundColor #4ba3fa
+      FontColor #000000
+      LineColor #0D4F8
+    }
+  }
+}
+</style>
+
+
+* Webová stránka
+** GSK elementárne hrozby
+*** Zoznam hrozieb
+*** Detail hrozby
+** GSK moduly
+*** Zoznam modulov
+*** Detail modulu
+** Informácie o organizácií
+*** Zoznam aktív
+** Analýza rizík <<ocean>>
+*** Zoznám analýz rizík <<ocean>>
+*** Zobrazenie [kód] analýzy rizík <<ocean>>
+**** 1. Identifikácia hrozieb <<ocean>>
+***** Zhrnutie identifikovaných hrozieb <<ocean>>
+***** Identifikácia hrozieb pre [modul] <<ocean>>
+**** 2. Klasifikácie hrozieb <<ocean>>
+***** Zhrnutie klasifikácie rizík <<ocean>>
+***** Klasifkácia [rizika] voči [modulu] <<ocean>>
+**** 3. Ošetrenie rizika <<ocean>>
+***** Prehľad ošetrení rizík <<ocean>>
+***** Plošné opatrenia <<ocean>>
+***** Opatrenia pre celý [modul] <<ocean>>
+***** Opatrenia pre konkrétnu [hrozbu] <<ocean>>
+***** Opatrenia pre [modul] a jeho konkrétnu [hrozbu] <<ocean>>
+**** 4. IT-Grundschutz check <<ocean>>
+**** 5. Zhrnutie zavedených opatrení <<ocean>>
+
+@endwbs

@@ -1,0 +1,93 @@
+@startuml techservis_network
+!theme plain
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+skinparam roundCorner 8
+skinparam ArrowColor #5F5E5A
+skinparam ArrowThickness 1
+skinparam ArrowFontSize 10
+
+skinparam rectangle {
+  BorderColor #B4B2A9
+  BorderStyle dashed
+  BackgroundColor transparent
+  FontColor #888780
+  FontSize 11
+}
+
+skinparam component {
+  BorderThickness 1
+}
+
+skinparam component<<endpoint>> {
+  BackgroundColor #E1F5EE
+  BorderColor #1D9E75
+  FontColor #085041
+}
+
+skinparam component<<internal>> {
+  BackgroundColor #EEEDFE
+  BorderColor #534AB7
+  FontColor #3C3489
+}
+
+skinparam component<<production>> {
+  BackgroundColor #FAECE7
+  BorderColor #993C1D
+  FontColor #712B13
+}
+
+skinparam component<<perimeter>> {
+  BackgroundColor #F1EFE8
+  BorderColor #5F5E5A
+  FontColor #444441
+}
+
+skinparam component<<lan>> {
+  BackgroundColor #E6F1FB
+  BorderColor #185FA5
+  FontColor #0C447C
+}
+
+actor "State portal\nusers" as users
+component "Internet" <<perimeter>> as internet
+component "S6 Firewall / VPN" <<perimeter>> as s6
+
+rectangle "S12 Server room · Bratislava" {
+
+  component "S7 Office LAN & Wi-Fi" <<lan>> as s7
+
+  rectangle "Office · Bratislava" as office {
+    component "S1 Workstations\n<size:10>x15, office LAN</size>" <<endpoint>> as s1
+    component "S11 Admin laptops\n<size:10>x3, remote VPN</size>" <<endpoint>> as s11
+  }
+
+  rectangle "Internal IT segment" as itSegment {
+    component "S5 AD\n<size:10>Directory / auth</size>" <<internal>> as s5
+    component "S4 File server\n<size:10>Shared storage</size>" <<internal>> as s4
+    component "S3 Nexus\n<size:10>Artifact repo</size>" <<internal>> as s3
+    component "S2 GitLab CI\n<size:10>Build / CI/CD</size>" <<internal>> as s2
+  }
+
+  rectangle "Production segment" as prodSegment {
+    component "S8 App server\n<size:10>Portal (S10)</size>" <<production>> as s8
+    component "S9 Database\n<size:10>Client data (Very High)</size>" <<production>> as s9
+  }
+
+}
+
+users --> internet
+internet <--> s6
+prodSegment -[hidden]- itSegment
+
+s6 --> s7 : LAN / VPN
+s6 -[#993C1D,dashed]-> s8 : HTTPS :443
+
+s7 --> office
+s7 --> itSegment
+s7 --> prodSegment
+
+s8 --> s9
+s2 -[#534AB7]-> s8 : deploy
+
+@enduml

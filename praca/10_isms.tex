@@ -1,0 +1,115 @@
+\chapter{Štandardy BSI: IT-Grundshutz}
+\emph{Bundesamt für Sicherheit in der Informationstechnik} (BSI), je federálna agentúra,
+ktorá zodpovedá za kybernetickú bezpečnosť a bezpečnú digitalizáciu Nemeckej spolkovej republiky\cite{bsibundde}.
+BSI vypracoval systematický základ pre informačnú bezpečnosť nazývajúci sa IT-Grundschutz
+(v preklade \emph{základná ochrana IT}). Pri budovaní informačnej bezpečnosti (ISMS, viac v kapitole
+\nameref{chap:isms}) môžu organizácie siahnuť po nasledovných publikáciach:
+\begin{itemize}[nosep]
+    \item BSI Standard 200-1 \cite{BSI1}, základné požiadavky ISMS
+    \item BSI Standard 200-2 \cite{BSI2}, postup zavedenia ISMS
+    \item BSI Standard 200-3 \cite{BSI3}, analýzu rizík
+    \item BSI Standard 200-4 \cite{BSI4}, manažment kontinuity
+    \item IT-Grundshutz Kompendium \cite{GSK}, katalóg modulov pre rozličné oblasti
+\end{itemize}
+IT-Grundshutz je kompatibilný s medzinárodným štandardom ISO/IEC 27001 a organizácie môžu svoj informačný systém 
+certifikovať podľa ISO 27001\footnote{Prečo nás to zaujíma je rozvinuté v kapitole \nameref{chap:zakony}}.
+
+\section{Filozofia štandardov BSI}
+\label{sec:bsiphilosophy}
+
+Štandardy BSI presadzujú tzv. holistický koncept informačnej bezpečnosti\footnote{Prívlastok holistický, resp.
+holizmus ako filozofický smer vychádza z presvedčenia, že skutočnosť môžme pochopiť iba ako väčší celok --- celok
+je viac, ako súčet jeho častí. Ide o opak redukcionizmu, ktorý vysvetľuje zložité skutočnosti jej rozkladom na 
+jednoduchšie ľahko pochopiteľné časti \cite{WikiHolism}.}. Aby sme zaistili efektívnu informačnú bezpečnosť, musíme ju presadzovať
+na každej úrovni organizácie (počnúc vedením, cez procesy, zamestnancov až po samotné IT systémy a zariadenia).
+Spolková agentúra BSI analyzovala typické organizácie a identifikovala spoločné úlohy, procesy, problémy a ďalšie
+spoločné prvky, pričom došla k záveru, že malé a stredne veľké organizácie nemajú ľudské ani finančne zdroje na
+zaistenie informačnej bezpečnosti v jednom kroku\cite{BSI1}. Tejto nepriaznivej skutočnosti sa preto snažia patrične
+pomôcť.
+
+Vo svojich publikáciach predkladajú čitateľovi\footnote{Zamestnancovi poverenému informačnou bezpečnosťou.} priamočiary
+návod na implementáciu fundamentálnych bezpečnostných opatrení. Štandardy rozoberajú rôzne príklady, kladú otázky
+a ponúkajú potenciálne odpovede, aby vhodne usmernili/pomohli procesu zavádzania/správy informačnej bezpečnosti.
+Vďaka takémuto prístupu môže aj zamestnanec so základnou znalosťou informatiky vyzdvihnúť úroveň informačnej
+bezpečnosti v organizácii na požadovanú\footnote{Požadovanú v zmysle relevantného zákona alebo štandardu pre účely
+certifikácie.} úroveň.
+
+V nasledujúcej časti zjednodušene popíšeme proces, ktorým môžeme systematicky zaviesť informačnú bezpečnosť v organizácií.
+Naším konečným cieľom je ukotviť analýzu rizík v kontexte tohto procesu.
+
+\section{System riadenia informačnej bezpečnosti --- ISMS}
+\label{sec:isms}
+
+Informačne systémy sa nachádzajú v neustále meniacom sa kybernetickom priestore. Z tejto inherentnej vlastnosti vyplýva, že proces
+KIB musíme kontinuálne prispôsobovať zmenám, aby zostal aktuálny, efektívny a účinný. Manažérsky proces, ktorý formalizuje
+a zastrešuje celý proces riadenia informačnej bezpečnosti nazývame ISMS (z angl. \emph{information securuity management system}).
+Štandard \cite{BSI1} rozdeľuje ISMS na štyri komponenty zobrazené na obrázku \ref{fig:isms-bsi1}, pri každom z komponentov sú v
+bodoch zhrnuté kľúčové aspekty. V krátkosti priblížime význam jednotlivých komponentov.
+
+\input tikz/isms-bsi1.tex
+
+\textbf{Manažerské princípy} sa týkajú najmä vedenia organizácie, ktorého úlohou je explicitne ustanoviť proces KIB ako vedomú
+a cielenú činnosť naprieč celou organizáciou. Vedenie musí vytvoriť stratégiu KIB, v ktorej jasne určí svoje
+ciele\footnote{Tieto ciele možu vyplývať z poslania a procesov organizácie, ale aj zo zákonných povinností.} KIB a ako ich
+plánuje naplniť. Vedenie musí vytvoriť rolu manažéra KIB, ktorého úlohou je riadiť ISMS a komunikovať dôležité
+informácie/rozhodnutia/problémy s vedením organizácie.
+
+\textbf{Finančné/personálne/časové zdroje} sú potrebné na efektívne splnenie cieľov KIB. Vedenie potrebuje
+nastaviť realistické ciele a na ich splnenie vymedziť potrebné zdroje. Vedenie tiež musí byť schopné robiť informované rozhodnutia,
+aby zbytočne neplytvalo týmito zdrojmi (ako sú drahé technické riešenie, prehnané administratívne zaťaženie
+alebo časovo-zdĺhavá implementácia opatrenia).
+
+\textbf{Zamesntanci} sú neoddeliteľnou súčasťou organizácie, a preto sa musia aktívne zapájať do KIB. Každý zamestnanec je
+zaradený do roly KIB a musí vedieť, aké má povinnosti, ktoré zručnosti potrebuje mať a aké negatívne dôsledky môže mať
+jeho správanie.
+
+\textbf{Bezpečnostný proces} slúži na udržiavanie primeranej úrovne KIB v organizácií. Riadi sa tzv.
+PDCA(\emph{angl. “Plan”, “Do”, “Check”, “Act”}) cyklom. Organizácia urči svoj stav a podmienky,
+v ktorých sa nachádza (napr. poslanie a štruktúra organizácie, strategický kontext alebo zainteresované
+tretie strany). Na základe týchto vstupov organizácia pomenuje bezpečnostné ciele a vypracuje politiku KIB, ktorá popisuje
+význam KIB a určuje povinnosti v KIB. Ciele a politika KIB sú ďalej rozvinuté a implementované pomocou koncepcie KIB.
+Nakoniec organizácia posudzuje výkonnosť a efektívnosť bezpečnostného procesu (metriky, audit) a pravidelne zdokonaľuje určené
+ciele, politiku a koncepciu KIB.
+
+IT-Grundschutz poskytuje tri úrovne prístupu k ochrane aktív: základný (\emph{basic}), jadrový (\emph{core}) a štandardný
+(\emph{standard}). Voľba prístupu závisí od identifikovaných bezpečnostných požiadaviek.
+
+\textbf{Základná ochrana} formuje základy informačnej bezpečnosti, jej hlavným účelom je zaviesť základné bezpečnostné opatrenia,
+ktoré majú široký dosah. Vyžaduje si pomerne malé úsilie, a preto ju vieme pomerne rýchlo implementovať.
+
+\textbf{Jadrová ochrana} sústreďuje pozornosť na tzv. klenoty organizácie, ktorých narušenie môže ohrozovať existenciu organizácie. 
+
+\textbf{Štandardná ochrana} slúži na komplexnú ochranu všetkých častí organizácie, vyžaduje si ale väčšiu dávku úsilia a
+väčšie množstvo zdrojov. Na obrázku \ref{fig:securuity-concept-bsi2} môžeme vidieť náčrt bezpečnostného konceptu pre
+{\color{NavyBlue}základnú (modrá)}, {\color{Orange}jadrovú (oranžová)} a {\color{Green}štandardnú (zelená)} ochranu,
+pre ľahšie porovnanie vzájomných rozdielov sme ich uložili vedľa seba.
+
+\include{tikz/standard-protection-bsi2}
+
+%Teraz vysvetlíme bezpečnostný koncept pre štandardnú ochranu, až kým nedospejeme k analýze rizík.
+Špecifikácia rozsahu nám určuje rámec a rozsah bezpečnostného zámeru, v ktorom vykonávame bezpečnostný proces. Tento rozsah nazývame
+informačná doména a je odvodená z organizačných jednotiek, agendy organizácie, čiastkových cieľov a biznisových procesov. Komponenty,
+ktoré majú byť chránené modulmi \cite{GSK}, spadajú tiež do informačnej domény.
+
+Štrukturovaná analýza nám poskytuje náhľad do informačnej domény, v tejto časti potrebujeme zanalyzovať a zdokumentovať vzájomné interakcie
+aktív organizácie. Ako východiskový bod pre nás môže slúžiť topológia organizácie alebo sieťový plán, z ktorého môžeme vyčítať informačné
+systémy, sieťové prepojenia a komunikačné kanály. Dôležité je, aby sme si ujasnili zrnitosť aktív, kde príliš jemná zrnitosť môže vyústiť vo
+veľký počet aktív a časovo zdĺhavú správu. Naopak, príliš hrubá zrnitosť aktív môže vyústiť vo vyhladenie dôležitých detailov a hľadaniu
+neefektívnych univerzálnych riešení. Môžeme zvážiť podľa potreby derivovať zo základných kategórií \cite{GSK}: biznisové procesy, aplikácie,
+IT systémy, miestnosti a komunikačné linky.
+
+Stanovenie bezpečnostných požiadaviek pre aktíva identifikované v štrukturovanej analýze je kľúčové, aby sme danému aktívu zaistili primeranú
+bezpečnosť. Úroveň ochrany aktíva posudzujeme vzhľadom na jeho základné hodnoty CIA, úrovne môžu byť napr. normálna, vysoká a veľmi vysoká.
+Pri určovaní primeranej úrovne nám môže pomôcť uvažovať o potenciálnych scenároch, kedy sa pozeráme na potenciálny dopad narušenia jednej
+zo základných hodnôt aktíva\footnote{Tu sa prvýkrát približujeme k analýze rizík, ale na vysokej úrovni, lebo nezachádzame do detailov.}.
+
+Modelovanie je v princípe priamočiara činnosť, počas ktorej aktíva namapujeme na relevantný modul \cite{GSK}. Podľa identifikovaných bezpečnostných
+požiadaviek aktíva volíme príslušné/potrebné opatrenia modulu. Zvolené opatrenia adoptujú a zavádzajú do účinnosti poverené osoby, vlastníci aktív.
+
+IT-Grundschutz check predstavuje kontrolnú fázu, kedy si spravíme rýchly prehľad o súčasnej úrovni informačnej bezpečnosti v organizácií. S vlastníkmi
+aktív uskutočňujeme interview, pričom usudzujeme mieru implementácie zvolených opatrení stavom: nepotrebný, implementovaný, neimplementovaný a čiastočne
+implementovaný. Výsledkom je spätná väzba, na ktorej môžme ďalej stavať a vylepšovať bezpečnostný proces.
+
+Vzhľadom na tému našej práce je zaujímavá nasledujúca časť analýzy rizík. Z IT-Grundschutz check nám vypadnú aktíva, ktorých primeranú bezpečnosť
+sme pomocou zavedených opatrení nedokázali zabezpečiť, čim sme dostali tzv. aktíva potrebné na ďalšie preskúmanie. 
+

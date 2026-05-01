@@ -156,7 +156,7 @@ podmienkam a potrebám.
     \label{tab:thrfreq}
     \begin{center}
         \footnotesize
-        \begin{tabular}{ |p{0.20\textwidth}|p{0.80\textwidth}| }
+        \begin{tabularx}{\textwidth}{|X|X|}
         \hline
         úroveň & popis \\
         \hline
@@ -169,7 +169,7 @@ podmienkam a potrebám.
         \hline
         veľmi často & niekoľkokrát do mesiaca  \\
         \hline
-        \end{tabular}
+        \end{tabularx}
     \end{center}
 \end{table}
 
@@ -178,7 +178,7 @@ podmienkam a potrebám.
     \label{tab:thrdmg}
     \begin{center}
         \footnotesize
-        \begin{tabular}{ |p{0.20\textwidth}|p{0.80\textwidth}| }
+        \begin{tabularx}{\textwidth}{|X|X|}
         \hline
         úroveň & popis \\
         \hline
@@ -191,7 +191,7 @@ podmienkam a potrebám.
         \hline
         života-ohrozujúci & účinky poškodenia môžu byť katastrofálne a ohrozovať existenciu organizácie \\
         \hline
-        \end{tabular}
+        \end{tabularx}
     \end{center}
 \end{table}
 
@@ -200,7 +200,7 @@ podmienkam a potrebám.
     \label{tab:thrimp}
     \begin{center}
         \footnotesize
-        \begin{tabular}{ |p{0.20\textwidth}|p{0.80\textwidth}| }
+        \begin{tabularx}{\textwidth}{|X|X|}
         \hline
         úroveň & popis \\
         \hline
@@ -213,9 +213,111 @@ podmienkam a potrebám.
         \hline
         veľmi vysoké & navrhnuté alebo implementované bezpečnostné opatrenia poskytujú dostatočnú ochranu, v praxi sú málokedy akceptované \\
         \hline
-        \end{tabular}
+        \end{tabularx}
     \end{center}
 \end{table}
 
 Nakoniec vzťah pravdepodobnosti, potenciálnej škody a potenciálneho dopadu vyjadríme v maticou klasifikácie rizík \ref{fig:risk-matrix-bsi3}.
 \input{tikz/risk-matrix-bsi3.tex}
+
+\subsection*{Klasifikácia rizík: fiktívny scenár}
+Vychádajúc z fázy bezpečnostného procesu, kde sme definovali bezpečnostné požiadavky aktív, sme vytvorili tabuľku popisu hrozieb. Z predchádzajúcich
+skúsenosti sme odhadli frekvenciu výskytu a potenciálny dopad a v kontexte načrtnutých scenárov sme objasnili vyplývajúce riziko v tabuľke
+\ref{tbl:riskassesmentexample}, pre prehľadnosť sme uviedli iba jednu klasifikáciu hrozby. Upozorníme na to, že nie vždy sú potrebné rozsiahle popisy
+a vysvetlenia, najmä ak sú vo svojej podstate triviálne. Písanie detailných opisov a zdôvodnení sa môže stať časovo netriviálnou záležitosťou v prípade
+rozsiahleho počtu aktív a hrozieb.
+
+\input{table/risk_assessment.tex}
+\newpage
+
+\section{Ošetrenie rizík}
+
+\section{Definovanie bezpečnostných požiadaviek}
+
+Vhodne definované bezpečnostné požiadavky voči základným hodnotám CIA aktíva identifikovaného v informačnej doméne tvoria podstatnú časť
+bezpečnostného rocesu, kedy si vysoko-ohrozené aktíva vyžadujú včasnú pozornosť a prednosť, čo môže v prvom rade ovplyvniť priority manažéra
+informačnej bezpečnosti alebo aj uprednostniť voľbu jadrovej ochrany pred základnou alebo štandardnou ochranou, v neposlednom rade aj počet aktív,
+vstupujúcich do explicitnej analýzy rizík. Na základe týchto dôvodov sme sa rozhodli venovať časť tejto práce aj tomu, ako (ne)vhodne definovať
+bezpečnostné požiadavky pre dané aktívum.
+
+Bezpečnostné požiadavky na aktívum sú zamerané na potenciálne škody, ktoré vyplývajú z nepriaznivého vplyvu objektívne existujúcej hrozby. Podľa
+\cite{BSI3} uvažujeme tri kategórie ochrany:
+\begin{itemize}[nosep]
+    \item normálna, dôsledky narušenia sú limitované zvládnuteľne 
+    \item vysoká, dôsledky narušenia sú značné
+    \item veľmi vysoká, dôsledky narušenia môžu mať katastrofálne dopady a ohrozovať existenciu organizácie 
+\end{itemize}
+Počet kategórií nie je vopred daný, môže sa líšiť aj naprieč CIA a musíme si ich prispôsobiť vlastným podmienkam a potrebám\footnote{Napr. môžeme
+dôvernosť rozdeliť na štyri úrovne: verejné, interné, dôverné a utajené; dostupnosť na dve úrovne: normálna a kritická.}. Zoberme kategóriu
+biznisový proces, kde narušenia CIA vieme rozdeliť do niekoľkých spoločných scenárov:
+\begin{itemize}[nosep]
+    \item porušenie zákonov, regulácií a zmluvných podmienok
+    \item porušenie práva na informačne sebaurčenie \footnote{\emph{Recht auf informationelle Selbstbestimmung},
+    právo jednotlivca, aby na základe princípu sebaurčenia sám rozhodoval, kedy a v akom rozsahu by mali byť
+    informácie o jeho súkromnom živote poskytované iným.}
+    \item narušenie fyzickej integrity osoby
+    \item narušenie schopnosti vykonávať úlohu
+    \item negatívne interné alebo externé účinky
+    \item finančné dôsledky
+\end{itemize}
+Potom pri posudzovaní úrovne ochrany môžme postupovať podľa kritérií v tabuľke \ref{tab:protectionscenario}, neuvádzali sme všetky skupiny, vybrali sme
+tie najzaujímavejšie príklady.
+
+
+\begin{table}[h!]
+    \caption{Vybrané scenáre na ilustráciu posudzovania úrovne ochrany}
+    \label{tab:protectionscenario}
+    \begin{center}
+            \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{2.8cm}
+                                  |>{\raggedright\arraybackslash}X
+                                  |>{\raggedright\arraybackslash}X
+                                  |>{\raggedright\arraybackslash}X|}
+            \hline
+            \textbf{scenár} & \textbf{normálna ochrana} & \textbf{vysoká ochrana} & \textbf{veľmi vysoká ochrana}
+            \\
+            \hline
+            \hline
+            \textbf{porušenie práva na informačne sebaurčenie}
+             &
+            narušenie tých osobných údajov, ktorých spracovanie môže mať nepriaznivé účinky na spoločenské postavenie alebo ekonomické podmienky dotknutej osoby
+             &
+            narušenie tých osobných údajov, ktorých spracovanie môže mať značne nepriaznivé účinky na spoločenské postavenie alebo ekonomické podmienky dotknutej osoby
+             &
+            ohrozenie života a zdravia alebo osobných slobôd dotyčnej osoby
+            \\
+            \hline
+            \textbf{narušenie schopnosti vykonávať úlohu}
+             &
+            narušenie by bolo posúdené ako znesiteľné, maximálny akceptovateľný prestoj je medzi 24 až 72 hodín
+             &
+            narušenie by bolo posúdené ako neznesiteľné, maximálny akceptovateľný prestoj je medzi hodinou až 24 hodín
+             &
+            narušenie by bolo posúdené ako neakceptovateľné, maximálny akceptovateľný prestoj je menej, ako jedna hodina
+            \\
+            \hline
+            \textbf{finančné dôsledky}
+             &
+            akceptovateľná finančná strata
+             &
+            značná finančná strata, ktorá neohrozuje existenciu organizácie
+             &
+            finančná strata, ktorá ohrozuje existenciu organizácie
+            \\
+            \hline
+        \end{tabularx}
+    \end{center}
+\end{table}
+
+Poslednú praktickú radu, ktorú uvedieme, je sada štyroch princípov, ktorými by sme sa mali riadiť pri určovaní
+bezpečnostných požiadaviek:
+\begin{itemize}[nosep]
+    \item \textbf{dedenie}, postupujeme smerom z vrchu, biznisové procesy a aplikácie, potom ich individuálne prvky, ako miestností, informačné systémy a komunikačné linky
+    \item \textbf{maximálnosti}, ak rozdelíme aktívum na menšie častí, berieme do úvahy ten najzávažnejší účinok
+    \item \textbf{závislosti}, narušenie podporného aktíva môže spôsobiť narušenie k nemu primárneho aktíva
+    \item \textbf{kumulatívne účinky}, veľké množstvo malých narušení môže v konečnom dôsledku vyústiť do jedného veľkého narušenia iného aktíva
+    \item \textbf{distribučný efekt}, narušenie primárneho aktíva sa nemusí plne preniesť na jeho sekundárne aktíva
+\end{itemize}
+
+V prípade hlbšieho záujmu čitateľa ponúka štandard \cite{BSI2} v kapitole 8.2 kompletné príklady a úvahy pri určovaní
+bezpečnostných požiadaviek pre biznisové procesy, aplikácie, IT systémy, miestnosti, komunikačné linky a
+iné/nezaradené zariadenia.

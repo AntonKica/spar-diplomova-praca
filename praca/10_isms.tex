@@ -87,29 +87,110 @@ pre ľahšie porovnanie vzájomných rozdielov sme ich uložili vedľa seba.
 \include{tikz/standard-protection-bsi2}
 
 %Teraz vysvetlíme bezpečnostný koncept pre štandardnú ochranu, až kým nedospejeme k analýze rizík.
-Špecifikácia rozsahu nám určuje rámec a rozsah bezpečnostného zámeru, v ktorom vykonávame bezpečnostný proces. Tento rozsah nazývame
+\textbf{Špecifikácia rozsahu} nám určuje rámec a rozsah bezpečnostného zámeru, v ktorom vykonávame bezpečnostný proces. Tento rozsah nazývame
 informačná doména a je odvodená z organizačných jednotiek, agendy organizácie, čiastkových cieľov a biznisových procesov. Komponenty,
 ktoré majú byť chránené modulmi \cite{GSK}, spadajú tiež do informačnej domény.
 
-Štrukturovaná analýza nám poskytuje náhľad do informačnej domény, v tejto časti potrebujeme zanalyzovať a zdokumentovať vzájomné interakcie
+\textbf{Štrukturovaná analýza} nám poskytuje náhľad do informačnej domény, v tejto časti potrebujeme zanalyzovať a zdokumentovať vzájomné interakcie
 aktív organizácie. Ako východiskový bod pre nás môže slúžiť topológia organizácie alebo sieťový plán, z ktorého môžeme vyčítať informačné
 systémy, sieťové prepojenia a komunikačné kanály. Dôležité je, aby sme si ujasnili zrnitosť aktív, kde príliš jemná zrnitosť môže vyústiť vo
 veľký počet aktív a časovo zdĺhavú správu. Naopak, príliš hrubá zrnitosť aktív môže vyústiť vo vyhladenie dôležitých detailov a hľadaniu
 neefektívnych univerzálnych riešení. Môžeme zvážiť podľa potreby derivovať zo základných kategórií \cite{GSK}: biznisové procesy, aplikácie,
 IT systémy, miestnosti a komunikačné linky.
 
-Stanovenie bezpečnostných požiadaviek pre aktíva identifikované v štrukturovanej analýze je kľúčové, aby sme danému aktívu zaistili primeranú
+\textbf{Stanovenie bezpečnostných požiadaviek} pre aktíva identifikované v štrukturovanej analýze je kľúčové, aby sme danému aktívu zaistili primeranú
 bezpečnosť. Úroveň ochrany aktíva posudzujeme vzhľadom na jeho základné hodnoty CIA, úrovne môžu byť napr. normálna, vysoká a veľmi vysoká.
 Pri určovaní primeranej úrovne nám môže pomôcť uvažovať o potenciálnych scenároch, kedy sa pozeráme na potenciálny dopad narušenia jednej
 zo základných hodnôt aktíva\footnote{Tu sa prvýkrát približujeme k analýze rizík, ale na vysokej úrovni, lebo nezachádzame do detailov.}.
 
-Modelovanie je v princípe priamočiara činnosť, počas ktorej aktíva namapujeme na relevantný modul \cite{GSK}. Podľa identifikovaných bezpečnostných
+\textbf{Modelovanie} je v princípe priamočiara činnosť, počas ktorej aktíva namapujeme na relevantný modul \cite{GSK}. Podľa identifikovaných bezpečnostných
 požiadaviek aktíva volíme príslušné/potrebné opatrenia modulu. Zvolené opatrenia adoptujú a zavádzajú do účinnosti poverené osoby, vlastníci aktív.
 
-IT-Grundschutz check predstavuje kontrolnú fázu, kedy si spravíme rýchly prehľad o súčasnej úrovni informačnej bezpečnosti v organizácií. S vlastníkmi
+\textbf{IT-Grundschutz check} predstavuje kontrolnú fázu, kedy si spravíme rýchly prehľad o súčasnej úrovni informačnej bezpečnosti v organizácií. S vlastníkmi
 aktív uskutočňujeme interview, pričom usudzujeme mieru implementácie zvolených opatrení stavom: nepotrebný, implementovaný, neimplementovaný a čiastočne
 implementovaný. Výsledkom je spätná väzba, na ktorej môžme ďalej stavať a vylepšovať bezpečnostný proces.
 
 Vzhľadom na tému našej práce je zaujímavá nasledujúca časť analýzy rizík. Z IT-Grundschutz check nám vypadnú aktíva, ktorých primeranú bezpečnosť
-sme pomocou zavedených opatrení nedokázali zabezpečiť, čim sme dostali tzv. aktíva potrebné na ďalšie preskúmanie. 
+sme pomocou zavedených opatrení nedokázali zabezpečiť, čim sme dostali tzv. aktíva potrebné na ďalšie preskúmanie.
 
+
+\section{Kategórie a moduly IT-Grundshutz}
+
+Pred úvodom do analýzy rizík si ešte ujasníme niekoľko pojmov. Štandardy BSI používajú pomerne širokú terminológiu a špecifické pojmy, ktoré čitateľovi
+zhrnieme pre jasnosť a úplnosť, vzhľadom na paradox, že aj v samotných publikáciach sú definované implicitne. \cite{GSK} rozdeľuje aktíva do zhruba siedmich
+kategórií, ktoré sú vysvetlené sú v tabuľke \ref{tab:assetcategory}\footnote{Krátka poznámka o skrate \emph{IT systémy}, podobná zámena písmen nastáva aj
+v skratke ISO, \emph{International organisation for standardisation}.}.
+
+\begin{table}[h!]
+    \caption{Kategórie aktív}
+    \label{tab:assetcategory}
+    \begin{center}
+        \footnotesize
+        \begin{tabular}{ |p{0.15\textwidth}|p{0.45\textwidth}|p{0.40\textwidth}| }
+            \hline
+            kategória & význam & príklad \\
+            \hline
+            \hline
+            biznisový proces
+                      &
+            Séria štrukturovaných reprodukovateľných krokov alebo aktivít, ktoré organizácia vykonáva s cieľom splniť svoje úlohy alebo poslanie
+                      &
+            vývoj softvérového produktu na monitorovanie meteorologických podmienok, oddelenie ľudských zdrojov
+            \\
+            \hline
+            aplikácia
+                      &
+            Softvérové riešenie, ktoré spracováva dáta/informáciu a podporuje vykonávanie biznisového procesu.
+                      &
+            textový editor, mailový server a klient, komunikačný klient, active directory, služba na riadenie prístupu
+            \\
+            \hline
+            IT systémy (systémy informačných technológií)
+                      &
+            Platforma, na ktorej bežia aplikácie alebo pomocou nej komunikujú.
+                      &
+            item operačny systém, virtuálny server, tlačiareň, item osobný počítač, notebook, mobil
+            \\
+            \hline
+            IoT (internet of things)
+                      &
+            Sieťové zariadenie alebo objekt s pridanou „chytrou“ funkcionalitou.
+                      &
+            IP kamery, senzory vlhkosti, detektory ohňa, systémy HVAC (kúrenie, ventilácia a klimatizácia)
+            \\
+            \hline
+            ICS systémy (industrial control systems)
+                      &
+            Integrované softvérové a hardvérové konfigurácie určené na monitorovanie, automatizáciu a kontrolu industriálnych procesov.
+                      &
+            SCADA (Supervisory Control and Data Acquisition), monitoring a kontrola produkčných systémov; PLC (programmable logic controllers), riadenie strojov v reálnom čase (v továrni)
+            \\
+            \hline
+            budovy a miestnosti
+                      &
+            Fyzické priestory, v ktorých sa nachádzajú aktíva a sú prispôsobené ich potrebám.
+                      &
+            serverová miestnosť, dátový archív, kancelárie, továrenská dielňa
+            \\
+            \hline
+            komunikačné linky
+                      &
+            Fyzické alebo bezdrôtové prepojenie medzi IT, IoT alebo ICS systémami, ktoré sprostredkúva komunikáciu vrámci informačnej domény alebo do vonkajšieho sveta.
+                      &
+            switch, router, WLAN prístupový bod, internetové pripojenie, VLAN, VPN
+    
+            \\
+            \hline
+        \end{tabular}
+    \end{center}
+    \end{table}
+
+Prirodzene, nič nie je absolútne, ani žiadne aktívum nemôžeme jasne zaradiť do jednej kategórie, inými slovami toto rozdelenie netvorí disjunktný
+rozklad nad množinou všetkých aktív, Uvedieme dva príklady, na ktorých ilustrujeme potenciálny rozkol kategorizácie aktív:
+\begin{enumerate}[nosep]
+    \item Bezdrôtový prístupový bod je IT Systém a súčasne prvok komunikačnej linky.
+    \item Výrobný počítač je IT Systém, hardvérová platforma na ktorej beží operačný systém; ICS systém obsluhujúci výrobu; a súčasne na ňom beží
+    špeciálna aplikácia, obsluhujúca výrobu.
+\end{enumerate}
+
+{\color{red} Pridať moduly, ako sú rozdelené a spojenie s kategóriámi}

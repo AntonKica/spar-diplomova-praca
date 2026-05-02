@@ -4,6 +4,7 @@
     \draw[arr] ([xshift=0.75cm]#1) -- ([xshift=0.75cm]#2);
     \draw[arr] ([xshift=2.25cm]#1) -- ([xshift=2.25cm]#2);
 }
+
 \begin{figure}[h]
     \centering
     \hspace*{-1.5cm}
@@ -26,7 +27,6 @@
         color=gray!70!black,
         },
         ]
-
         \def\spacingstep{-1.75}
         \fill[RoyalBlue!12, rounded corners=6pt] (-10.5, -2.5*\spacingstep) rectangle (-3.5, 8.5*\spacingstep);
         \fill[Orange!12, rounded corners=6pt] (-3.5, -2.5*\spacingstep) rectangle ( 3.5, 8.5*\spacingstep);
@@ -43,9 +43,9 @@
         \node[box] (S2) at (7, 1*\spacingstep) {{\bfseries Požiadavky na ochranu}\\{\footnotesize analýza podmienok organizácie}};
         \node[box] (S3) at (7, 2*\spacingstep) {{\bfseries Modelovanie}\\{\footnotesize výber a adaptácia požiadaviek}};
         \node[box] (S4) at (7, 3*\spacingstep) {{\bfseries IT-Grundschutz check (časť 1)}\\{\footnotesize stav požiadaviek}};
-        \node[box] (S6) at (7, 5*\spacingstep) {{\bfseries Konsolidácia}\\\hspace{}};
+        \node[box] (S6) at (7, 5*\spacingstep) {{\bfseries Konsolidácia}\\\hspace{1em}};
         \node[box] (S7) at (7, 6*\spacingstep) {{\bfseries IT-Grundschutz check (časť 2)}\\{\footnotesize stav požiadaviek}};
-        \node[box] (S8) at (7, 7*\spacingstep) {{\bfseries Implementácia opatrení}\\\hspace{}};
+        \node[box] (S8) at (7, 7*\spacingstep) {{\bfseries Implementácia opatrení}\\\hspace{1em}};
 
         \fourarrows{S0.south}{S1.north}
         \fourarrows{S1.south}{S2.north}
@@ -55,7 +55,7 @@
         \fourarrows{S6.south}{S7.north}
         \fourarrows{S7.south}{S8.north}
 
-        \node[box, minimum width=3.5cm, text width=3.4cm] (S5) at (8.5, 4*\spacingstep) {{\bfseries Analýza rizík\\\hspace{}}};
+        \node[box, minimum width=3.5cm, text width=3.4cm] (S5) at (8.5, 4*\spacingstep) {{\bfseries Analýza rizík\\\hspace{1em}}};
          
         % RIGHT: Maintenance and Continuous Improvement arrow (S8 back to S1)
         \node[box, minimum width=13.5cm, minimum height=1.2cm, text width=12cm, align=center, rotate=-90, anchor=center] 
@@ -69,7 +69,7 @@
         \node[box] (B0) at (-7,-1.8*\spacingstep) {{\bfseries Špecifikácia rozsahu}\\organizácia, infraštruktúra, IT systémy, aplikácie, zamestnanci};
         \node[box] (B1) at (-7, 0*\spacingstep) {{\bfseries Voľba a prioritizácia relevantných modulov}};
         \node[box] (B2) at (-7, 3*\spacingstep) {{\bfseries IT-Grundschutz check}\\{\footnotesize základné požiadavky}};
-        \node[box] (B3) at (-7, 7*\spacingstep) {{\bfseries Implementácia opatrení}\\\hspace{}};
+        \node[box] (B3) at (-7, 7*\spacingstep) {{\bfseries Implementácia opatrení}\\\hspace{1em}};
         \node[box] (B4) at (-7, 8*\spacingstep) {{\bfseries Voľba ďalšieho postupu}\\{\footnotesize jadrová alebo štandardná ochrana}};
 
         \fourarrows{B0.south}{B1.north}
@@ -86,7 +86,7 @@
         \node[box] (C5) at (0, 3*\spacingstep) {{\bfseries IT-Grundschutz check}\\{\footnotesize stav požiadaviek}};
         \node[box] (C6) at (0, 4*\spacingstep) {{\bfseries Analýza rizík a dodatočné opatrenia}};
         \node[box] (C7) at (0, 7*\spacingstep) {{\bfseries Implementácia a ďalšie kroky}\\{\footnotesize vylepšenie, rozšírenie, certifikácia}};
-        \node[box] (C8) at (0, 8*\spacingstep) {{\bfseries Štandardná ochrana}\\\hspace{}};
+        \node[box] (C8) at (0, 8*\spacingstep) {{\bfseries Štandardná ochrana}\\\hspace{1em}};
         
         \fourarrows{C0.south}{C1.north}
         \fourarrows{C1.south}{C2.north}

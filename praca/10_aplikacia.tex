@@ -111,7 +111,7 @@ a porovnanie so štandardom \cite{BSI3}.
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.6\textwidth]{images/pages/00-precond-db.png}
+\includegraphics[width=0.8\textwidth]{images/pages/00-precond-db.png}
 \caption{Predpoklady: databázový model}
 \label{fig:00-precond-db}
 \end{figure}
@@ -134,7 +134,6 @@ V našom systéme pracujeme čisto s modulmi, ktoré vyplývajú z mapovania akt
 dobre korešponduje so štandardom \cite{BSI2}, \cite{BSI3} a \cite{GSK} a nevytvára zbytočne komplikovanú medzi-reprezentáciu.
 
 \begin{figure}[!h]
-
 \begin{subfigure}{0.5\textwidth}
 \includegraphics[width=1.0\linewidth]{images/pages/10-threat-summary.png}
 \caption{tabuľka priradených hrozieb a modulov}
@@ -143,7 +142,6 @@ dobre korešponduje so štandardom \cite{BSI2}, \cite{BSI3} a \cite{GSK} a nevyt
 \includegraphics[width=1.0\linewidth]{images/pages/10-threat-id.png}
 \caption{výber hrozieb pre modul}
 \end{subfigure}
-
 \caption{Identifikácia hrozieb: používateľské rozhranie}
 \label{fig:10-threat-id}
 \end{figure}
@@ -160,12 +158,81 @@ fázu, v ktorej sme aktívum vybrali.
 
 V porovnaní s 200-3 sme sa rozhodli rozdeliť identifikáciu základných hrozieb až na dve časti: relevantné (vyplývajúce analýzy GSK)
 a dodatočné (zvyšné hrozby z \cite{GSK}) identifikáciu špecifických hrozieb sme ponechali. Navyše sme kategorizovali základné hrozby
-(aj špecifické hrozby) do kategórií z 27005, tabuľka mapovaní hrozieb do kategórií je v elektronickej prílohe.
+(aj špecifické hrozby) do kategórií z \cite{27005}, tabuľka mapovaní základných hrozieb \cite{GSK} hrozieb do kategórií je v elektronickej prílohe.
 
 Obe zmeny, rozdelenie identifikácie základných hrozieb a dodatočná kategorizácia, majú pomôcť užívateľovi sa lepšie zorientovať v katalógu
 47 hrozieb. Poslednú pomôcku sme pridali tabuľku zhrnutia identifikovaných hrozieb, aby si užívateľ mohol porovnať podobné/odlišné hrozby.
 
 \subsection{2. Klasifikácia hrozieb}
+
+\begin{figure}[!h]
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=1.0\linewidth]{images/pages/20-risk-summary.png}
+\caption{matica a tabuľka výsledných rizík}
+\end{subfigure}
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=1.0\linewidth]{images/pages/20-risk-id.png}
+\caption{výber hrozieb pre modul}
+\end{subfigure}
+\caption{Klasifikácia hrozieb: používateľské rozhranie}
+\label{fig:20-threat-id}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\textwidth]{images/pages/20-risk-id-db.png}
+\caption{Klasifikácia hrozieb: databázový model}
+\label{fig:20-threat-id-db}
+\end{figure}
+
+Pri prechode do klasifikácie rizík za každý riadok \lstinline{risk_analysis_threat} (identifikovanej hrozby pre aktívum) vložíme korešpondujúci
+riadok do tabuľky \lstinline{risk_classification} s predvolenými hodnotami zriedkavej pravdepodobnosti (\lstinline{likelihood}) výskytu a
+zanedbateľného dopadu (\lstinline{impact}), hodnota rizika je vypočítaná príslušnou maticou.
+
+V tomto kroku sme sa držali \cite{BSI3}, prevzali sme štyri úrovne pravdepodobnosti výskytu a štyri úrovne potenciálneho dopadu. Ešte ozrejmime,
+prečo práve štyri úrovne rizika, nakoľko sa čitateľovi môže zdať, že máme o jednu kategóriu navyše:
+\begin{itemize}[nosep]
+    \item nízke, existujúce/navrhnuté opatrenia poskytujú dostatočnú ochranu, riziko akceptujeme a monitorujeme
+    \item stredné, existujúce/navrhnuté opatrenia nemusia poskytovať dostatočnú ochranu
+    \item vysoké, existujúce/navrhnuté opatrenia neposkytujú dostatočnú ochranu
+    \item veľmi vysoké, existujúce/navrhnuté opatrenia neposkytujú dostatočnú ochranu, naplnenie hrozby je reálne a riziko musíme bezodkladne ošetriť
+\end{itemize}
+
 \subsection{3. Ošetrenie rizika}
+
+\begin{figure}[!h]
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=1.0\linewidth]{images/pages/30-treatment-summary.png}
+\caption{tabuľka ošetrení rizík}
+\end{subfigure}
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=1.0\linewidth]{images/pages/30-treatment.png}
+\caption{výber opatrení pre redukovanie rizika}
+\end{subfigure}
+\caption{Ošetrenie rizík: používateľské rozhranie}
+\label{fig:30-treatmetn-id}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\textwidth]{images/pages/30-treatment-db.png}
+\caption{Ošetrenie rizík: databázový model}
+\label{fig:30-treatmetn-id-db}
+\end{figure}
+
+Tabuľka \lstinline{risk_treatment} predstavuje zvolené ošetrenie (redukcia, prenesenie, akceptovanie, vyhnutie sa) pre danú
+dvojicu hrozby a modulu. Cez tabuľky \lstinline{risk_treatment_security_measure} a \lstinline{risk_treatment_requirement}
+spájame vybranú množinu opatrení (\lstinline{security_measure}) a požiadaviek pre modul (\lstinline{it_grundschutz_module_requirement}).
+
+V tejto časti sa najviac odlišujeme od štandardu \cite{BSI3}, kde \cite{GSK} ošetruje každú kombináciu hrozby a modulu samostatne,
+čo nám prišlo pracne. Preto sme sa rozhodli rozšíriť pôsobnosť opatrení na štyri druhy. Opatrenie sa môže vzťahovať na:
+\begin{itemize}[nosep]
+    \item konkrétnu dvojicu hrozby a modulu, tu pripúšťame všetky štyri typy ošetrenia (v tomto prípade bunka)
+    \item jednu konkrétnu hrozbu, tu pripúšťame všetky štyri typy ošetrenia, ktoré sa aplikujú \enquote{plošne} na každé z aktív (v tomto prípade stĺpec)
+    \item jeden konkrétny modul, tu pripúšťame iba požiadavky modulu z katalógu GSK, aplikujú sa na celý modul (v tomto prípade riadok)
+    \item žiadnu konkrétnu hrozbu ani modul, tu pripúšťame iba redukciu\footnote{Aký zmysel by malo preniesť, akceptovať alebo vyhnúť sa plošne ničomu
+    špecifickému?}, aplikujú sa na všetky moduly a hrozby (v tomto prípade tabuľku)
+\end{itemize}
+
 \subsection{4. IT-Grundschutz check}
 \subsection{5. Zhrnutie zavedených opatrení}

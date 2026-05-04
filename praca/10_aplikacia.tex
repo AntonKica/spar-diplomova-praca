@@ -235,4 +235,38 @@ V tejto časti sa najviac odlišujeme od štandardu \cite{BSI3}, kde \cite{GSK} 
 \end{itemize}
 
 \subsection{4. IT-Grundschutz check}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.7\linewidth]{images/pages/40-check.png}
+\caption{Kontrola zavedených opatrení: používateľské rozhranie}
+\label{fig:40-check}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\textwidth]{images/pages/40-check-db.png}
+\caption{Kontrola zavedených opatrení: databázový model}
+\label{fig:40-check-db}
+\end{figure}
+
+Pri prechode do kroku pre každý riadok vybraného bezpečnostného opatrenia (\lstinline{risk_treatment_security_measure}
+voči aktívu, modulu, aktívu a modulu alebo plošne) vygenerujeme nový riadok  \lstinline{risk_treatment_seurity_measure_assessment},
+Podobne pre \lstinline{risk_treatment_requirement} užívateľ kontroluje a určuje implementáciu jednotlivých opatrení
+(stĺpec \lstinline{status}) hodnotou nehodnotené, neimplementované, čiastočné, úplne a nadbytočne, slovne môže vyhodnotiť
+stav (stĺpec \lstinline{evaluation}).
+
+Po užívateľovi žiadame, aby posúdil stav každého navrhnutého opatrenia. Od štandardov \cite{BSI3} sa v tomto kroku nelíšime.
+
+
 \subsection{5. Zhrnutie zavedených opatrení}
+
+Táto časť slúži čisto na dokumentačné účely, kde môžeme vidieť všetky navrhnuté opatrenia pre kombináciu modulu a hrozby.
+V \cite{BSI3} sa táto časť nenachádza.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.7\linewidth]{images/pages/50-summary.png}
+\caption{Zhrnutie záverečných opatrení: používateľské rozhranie}
+\label{fig:50-summary}
+\end{figure}

@@ -23,6 +23,7 @@
 
 % tikz
 \usepackage[dvipsnames]{xcolor}
+\usepackage{forest}
 \usepackage{colortbl}
 \usepackage{tikz}
 \usetikzlibrary{positioning, arrows.meta, calc, decorations.pathreplacing}
@@ -32,7 +33,21 @@
 \usepackage{makecell}
 \usepackage{multirow}
 \usepackage{tabularx}
+\usepackage{csquotes}
+\usepackage{subcaption} 
 
+
+\definecolor{rootgray}{HTML}{888780}
+\definecolor{nodegray}{HTML}{D3D1C7}
+\definecolor{nodetextgray}{HTML}{444441}
+\definecolor{teal600}{HTML}{0F6E56}
+\definecolor{teal100}{HTML}{9FE1CB}
+\definecolor{purple600}{HTML}{534AB7}
+\definecolor{purple100}{HTML}{CECBF6}
+\definecolor{coral600}{HTML}{993C1D}
+\definecolor{coral100}{HTML}{F5C4B3}
+\definecolor{ocean}{HTML}{4ba3fa}
+\definecolor{oceanborder}{HTML}{0D4F8C}
 
 
 \def\mfrok{2026}
@@ -208,7 +223,7 @@ samostatne, a to s použitím literatúry uvedenej v priloženom zozname.
 \input 00_uvod.tex 
 \input 10_isms.tex 
 \input 10_analyzarizik.tex 
-%\input 10_aplikacia.tex 
+\input 10_aplikacia.tex 
 \input 10_wip.tex 
 \input 20_zaver.tex
 

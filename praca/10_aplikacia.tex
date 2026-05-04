@@ -1,7 +1,171 @@
-\chapter{Aplikácia}
+\chapter{Návrh systému}
 
-\begin{figure}[h]
-\caption{Mapa webového rozhrania aplikácie}
+Analýza rizík je pomerne komplexný proces s mnohými prípravnými prácami a detailami. V našej práci sme ho v kontexte ISMS
+popísali niekoľko desiatkami strán, pričom sme vynechali rôzne drobnosti a zajačie diery ({\color{red} Ktoré?}). Dovolíme si
+usúdiť, že amatérsky riešiteľ analýzy rizík siahne po jednoduchých pomôckach na manažovanie procesu, ako sú rôzne textové a
+tabuľkové editory. Postupujúc podľa \cite{BSI3} si riešiteľ bude musieť vytvoriť a ustrážiť vlastný systém, poriadok a pracovný
+postup. Pre nás informatikov je to prirodzená výzva: \enquote{Nevieme navrhnúť softvérové riešenie, ktorým by sme uľahčili tento proces?}
+Samozrejme, nechceme podceňovať schopnosti ani inteligenciu riešiteľa, naopak cez systém a štrukturovaný proces mu pomôcť uchovávať
+si získané informácie a ďalej s nimi efektívne pracovať.
+
+\section{Požiadavky a špecifikácia}
+
+Cieľová skupina pre navrhovaný systém sú zamestnanci menšej organizácie/štátnej inštitúcie, ktorí boli poverení vykonať analýzu rizík
+(či už z vlastnej iniciatívy, povinností vyplývajúcich zo ZoKB alebo ZoITVS), túto osobu budeme nazývať zameniteľne manažér KIB (m-KIB)
+alebo používateľ. U používateľa predpokladáme základné skúsenosti s informačnými technológiami a elementárne porozumenie informačnej
+bezpečnosti\footnote{Konkrétne, rozumieť, čo to je aktívum, že môže byť nejakým spôsobom narušené, prečo a ako ho potrebujeme chŕaniť.}.
+Navrhnutý systém by mal:
+\begin{itemize}[nosep]
+    \item usmerňovať používateľa v procese analýzy rizík
+    \item postupne zbierať informácie získané v procese analýzy rizík
+    \item pomôcť koncentrovať údaje v databáze, ktorá je \emph{de-facto} \enquote{single source of truth}
+    \item zjednodušiť manipuláciu s rozsiahlym počtom hrozieb a opatrení \cite{GSK} 
+    \item poskytnúť dokumentáciu zavedených bezpečnostných opatrení
+\end{itemize}
+
+\subsection*{Prečo sa unúvať vymýšľať ďalší systém?}
+
+Pred pokračovaním do nami navrhnutého systému sa ešte pozastavíme pri krátkom opodstatnení potreby takéhoto systému, možno si čitateľ
+práve pokladá otázku: \enquote{Naozaj nám nestačí si prečítať príručku \cite{BSI3} o analýze rizík?} Naša odpoveď by bola áno aj nie. Áno z
+toho dôvodu, že znalosti z \cite{BSI3} potrebujeme na pochopenie procesu analýzy rizík. Nie, lebo príručka \cite{BSI3} neustále posiela
+m-KIB konzultovať veci s vedením. Táto práca sa snaží pre m-KIB spojiť vysvetlený postupu \cite{BSI3} a samostatnú prácou so systémom.
+Nakoniec, sme \emph{In MatFyz} a riešiť hypotetické problémy, lebo môžeme, je našou náturou, hlavne keď je to zábava ({\color{red} asi
+budete chcieť tento odstavec vymazať, juj }).
+
+\section{Implementácia}
+
+Navrhovaný systém sme sa rozhodli implementovať ako tradičnú webovú aplikáciu prístupnu cez webový prehliadač, formálne sme ju rozdelili na tri
+časti: frontend, backend a databázu, zrhnuté v tabuľke \ref{tab:swvers}. Na úseku frontend-u sme sa sme sa rozhodli použiť HTML5 v kombinácií s JavaScript frameworkom SvelteKit.
+Na backend-e sme použili programovací jazyk Rust s webovým frameworkom ActixWeb, databazovým ovládačom SQLx a knižnicou na generovanie OpenAPI utoipa.
+Ako databázu sme si vybrali relačnú databázu PostgresSQL.
+
+\begin{table}[h!]
+    \begin{center}
+        \begin{tabularx}{\textwidth}{ |l|l|X| } 
+         \hline
+         \textbf{nástroj} & \textbf{verzia} & \textbf{popis} \\ 
+         \hline
+         \hline
+         \rowcolor{cyan!50}
+         \textbf{HTML5} & 5 & základný dokument webového rozhrania \\ 
+         \hline
+         \rowcolor{cyan!50}
+         \textbf{SvelteKit} & 2 & interaktívne rozhranie a komunikácia s backend-om \\ 
+         \hline
+         \rowcolor{lime!50}
+         \textbf{Rust} & 1.91 & základná programová logika a kontrola \\ 
+         \hline
+         \rowcolor{lime!50}
+         \textbf{ActixWeb} & 4 & spracovanie HTTP požiadaviek \\ 
+         \hline
+         \rowcolor{lime!50}
+         \textbf{SQLx} & 0.8 & typovo kontrolované databázové rozhranie \\ 
+         \hline
+         \rowcolor{lime!50}
+         \textbf{utoipa} & 5 & generovanie OpenAPI na zverejnenie rozhrania \\ 
+         \hline
+         \rowcolor{orange!50}
+         \textbf{PostgreSQL} & 17.9 & štrukturované relačné modely \\ 
+         \hline
+        \end{tabularx}
+    \end{center}
+    \caption{Použité softvérové nástroje, modrá zodpovedá frontend-u, zelená backend-u a oranžová databáze}
+    \label{tab:swvers}
+\end{table}
+
+Vo výbere nástrojov nefiguroval žiaden veľmi špecifický dôvod, nástroje pre frontend sme vyberali tak, aby nám pomohol rýchlo a
+štruktúrovane vyvíjať používateľské rozhranie. Jazyk backendu sme si zvolili Rust, lebo preferujeme statické typovanie pri vývoji,
+čo nám ustrážilo vstupy, výstupy a transformácie na oboch úsekoch databázy a HTTP servera. Voľba SQL vyplývala zo skutočnosti,
+že dáta majú pomerne jasnú formu, preto sme ani nevyhľadávali riešenie postavené na databázach typu NoSQL a pod. V ďalších častiach
+nebudem rozlišovať databázu, ale pojmom backend budeme zastrešovať aj pojem databázy, keďže tieto dve vrstvy veľmi úzko spolupracujú
+a v Rust-e primárne kódujeme iba menšie transformácie medzi dátovými reprezentáciami.
+
+\section{Užívateľské rozhranie}
+
+Webové používateľské rozhranie môžeme vidieť na obrázku \ref{fig:00-initial-screen}, prehľad strom užívateľského rozhrania môžeme
+vidieť na obrázku \ref{fig:app-ui-map}. Kompletný popis rozhrania je obsiahnutý v elektronickej prílohe, nakoľko ide o niekoľkostranový
+obrázkový dokument.
+\begin{figure}[h!]
 \centering
-\includegraphics[width=0.9\textwidth]{images/mapa-weboveho-rozhrania.png}
+\includegraphics[width=0.9\textwidth]{images/pages/00-initial-screen.png}
+\caption{Hlavná stránka aplikácie, na vrhu je navigáciu, v tele zoznam procesov analýz rizík so stavom a tlačidlom na zahájenie
+novej analýzi rizík.}
+\label{fig:00-initial-screen}
 \end{figure}
+
+\input{tikz/application-ui-map}
+
+Používateľské rozhranie má štyri navigačné položky:
+\begin{itemize}[nosep]
+    \item Domov, obrazovka s procesmi analýzy rizík, ktoré si môžeme prezerať a postupovať v nich
+    \item Aktíva, prehľad aktív organizácie a vkladanie nových aktív, čisto demonštračná implementácia na vkladanie vlastných aktív
+    \item Moduly GSK, prehľad katalógu modulov a detaily špecifických modulov prebratých z \cite{GSK}
+    \item Hrozby GSK, prehľad katalógu elementárnych hrozieb a detaily špecifických hrozieb prebratých z \cite{GSK}
+\end{itemize}
+Ďalej sa budeme venovať primárnej časti analýzy rizík (viď modrá farba na obr. \ref{fig:app-ui-map}), ktorá tvorí hlavnú implementačnú
+časť nášho systému, ktorý má pomáhať m-KIB. Každú časť od predpokladov a kroku  1. až po 5. postupne vysvetlíme, na začiatku ukážeme
+korešpondujúce užívateľské rozhranie, popíšeme backend pomocou entito-relačného diagramu, zdôvodníme \emph{racio} za naším rozhodnutím
+a porovnanie so štandardom \cite{BSI3}.
+
+\subsection{0. Predpoklady}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\textwidth]{images/pages/00-precond-db.png}
+\caption{Predpoklady: databázový model}
+\label{fig:00-precond-db}
+\end{figure}
+
+Elementárnymi tabuľkami sú \lstinline{it_grundschutz_module}, \lstinline{it_grundschutz_module_requirement}, \lstinline{it_grundschutz_module_threat},
+ktoré v poradí reprezentujú moduly GSK, požiadavky moduly a elementárne hrozby, ktoré už identifikovalo BSI za nás.
+Tabuľka \lstinline{threat} je trochu špeciálna, a to v tom, že sú v nej uložené elementárne hrozby a aj špecifické hrozby identifikované
+m-KIB\footnote{Rozlišujueme ich prefixom \enquote{G-} a \enquote{THR-}.}, sadu hrozieb GSK voči modulu spájame tabuľkou \lstinline{it_grundschutz_module_threat}.
+Tabuľka \lstinline{asset} predstavuje reprezentáciu informácií, ktoré potrebujeme v našom systéme na analýzu rizík, menovite namapovaný
+modul GSK, úroveň ochrany CIA a ich zdôvodnenia.
+Tabuľka \lstinline{risk_analysis} predstavuje proces analýzy rizík, má číselník state reprezentujúci aktuálny krok analýzy rizík.
+
+Pri vytváraní nového procesu analýzy rizík vygenerujeme nový identifikátor a spárujeme aktuálnu množinu aktív cez tabuľku \lstinline{risk_analysis_asset}.
+Spojenie tabuliek cez \lstinline{risk_analysis_module} je iba unikátne zjednotenie modulov, ktoré vyplývajú z aktuálnej množiny aktív.
+V tejto časti sa zatiaľ nijak neodlišujeme od \cite{BSI3}, mimo tabuľky \lstinline{threat}, ktorú popíšeme v ďalšom kroku.
+
+\subsection{1. Identifikácia hrozieb}
+
+V našom systéme pracujeme čisto s modulmi, ktoré vyplývajú z mapovania aktív. Považujeme to za primerane zvolenú granularitu, ktorá
+dobre korešponduje so štandardom \cite{BSI2}, \cite{BSI3} a \cite{GSK} a nevytvára zbytočne komplikovanú medzi-reprezentáciu.
+
+\begin{figure}[!h]
+
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=1.0\linewidth]{images/pages/10-threat-summary.png}
+\caption{tabuľka priradených hrozieb a modulov}
+\end{subfigure}
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=1.0\linewidth]{images/pages/10-threat-id.png}
+\caption{výber hrozieb pre modul}
+\end{subfigure}
+
+\caption{Identifikácia hrozieb: používateľské rozhranie}
+\label{fig:10-threat-id}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\textwidth]{images/pages/10-threat-id-db.png}
+\caption{Identifikácia hrozieb: databázový model}
+\label{fig:10-threat-id-db}
+\end{figure}
+
+Tabuľa \lstinline{risk_analysis_threat} reprezentuje užívateľom identifikované hrozby pre daný modul, stĺpec \lstinline{stage} reprezentuje
+fázu, v ktorej sme aktívum vybrali.
+
+V porovnaní s 200-3 sme sa rozhodli rozdeliť identifikáciu základných hrozieb až na dve časti: relevantné (vyplývajúce analýzy GSK)
+a dodatočné (zvyšné hrozby z \cite{GSK}) identifikáciu špecifických hrozieb sme ponechali. Navyše sme kategorizovali základné hrozby
+(aj špecifické hrozby) do kategórií z 27005, tabuľka mapovaní hrozieb do kategórií je v elektronickej prílohe.
+
+Obe zmeny, rozdelenie identifikácie základných hrozieb a dodatočná kategorizácia, majú pomôcť užívateľovi sa lepšie zorientovať v katalógu
+47 hrozieb. Poslednú pomôcku sme pridali tabuľku zhrnutia identifikovaných hrozieb, aby si užívateľ mohol porovnať podobné/odlišné hrozby.
+
+\subsection{2. Klasifikácia hrozieb}
+\subsection{3. Ošetrenie rizika}
+\subsection{4. IT-Grundschutz check}
+\subsection{5. Zhrnutie zavedených opatrení}

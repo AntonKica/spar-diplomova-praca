@@ -1,0 +1,85 @@
+\forestset{
+  route tree/.style={
+    for tree={
+      font=\ttfamily\scriptsize,
+      rounded corners,
+      draw,
+      minimum height=1.4em,
+      inner xsep=5pt,
+      inner ysep=2pt,
+      edge={draw, ->, >=stealth, gray!60, line width=0.4pt},
+      l sep=3mm,
+      s sep=1mm,
+      anchor=north,
+      align=center,
+      grow'=east,
+      child anchor=west,
+      parent anchor=east,
+      tier/.wrap pgfmath arg={tier##1}{level},
+    },
+  },
+  root/.style={
+    fill=nodegray, draw=rootgray, text=nodetextgray,
+    font=\ttfamily\bfseries\scriptsize,
+  },
+  teal node/.style={
+    fill=teal100, draw=teal600, text=teal600,
+  },
+  purple node/.style={
+    fill=purple100, draw=purple600, text=purple600,
+  },
+  coral node/.style={
+    fill=coral100, draw=coral600, text=coral600,
+  },
+  ocean node/.style={
+    fill=ocean, draw=oceanborder, text=black,
+  },
+}
+
+\begin{figure}[h!]
+\centering
+    
+\scalebox{0.72}{%
+\begin{forest}
+  route tree
+  [Webová stránka, root
+    [GSK elementárne hrozby, teal node
+      [Zoznam hrozieb, teal node]
+      [Detail hrozby, teal node]
+    ]
+    [GSK moduly, purple node
+      [Zoznam modulov, purple node]
+      [Detail modulu, purple node]
+    ]
+    [Informácie o organizácií, coral node
+      [Zoznam aktív, coral node]
+    ]
+    [Analýza rizík, ocean node
+      [Zoznám analýz rizík, ocean node]
+      [Zobrazenie {[kód]} analýzy rizík, ocean node
+        [1. Identifikácia hrozieb, ocean node
+          [Zhrnutie identifikovaných hrozieb, ocean node]
+          [Identifikácia hrozieb pre {[modul]}, ocean node]
+        ]
+        [2. Klasifikácia hrozieb, ocean node
+          [Zhrnutie klasifikácie rizík, ocean node]
+          [Klasifikácia {[rizika]} voči {[modulu]}, ocean node]
+        ]
+        [3. Ošetrenie rizika, ocean node
+          [Prehľad ošetrení rizík, ocean node]
+          [Plošné opatrenia, ocean node]
+          [Opatrenia pre celý {[modul]}, ocean node]
+          [Opatrenia pre konkrétnu {[hrozbu]}, ocean node]
+          [Opatrenia pre {[modul]} a jeho\\konkrétnu {[hrozbu]}, ocean node]
+        ]
+        [4. IT-Grundschutz check, ocean node]
+        [5. Zhrnutie zavedených opatrení, ocean node]
+      ]
+    ]
+  ]
+\end{forest}
+}
+\caption{Strom užívateľského rozhrania, uzly so stránkami sú farebne rozlíšené podľa príslušnej navigačnej lišty,
+\label{fig:app-ui-map}
+text v {[\ldots]} predstavuje identifikátor pre daný kontext. }
+\end{figure}

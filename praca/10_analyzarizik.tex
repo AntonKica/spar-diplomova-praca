@@ -9,31 +9,32 @@
 
 
 % Na začiatok by sme čítateľa radi upozornili na nekonzistentnosť termínov naprieč rôznymi štandardami, čo môže vyústiť v zbytočný zmätok a chaos. V tejto práci sa
+
 \chapter{Analýza rizík}
 \section{Analýza rizík podľa BSI 200-3}
-Analýza rizík je proces, ktorým ustanovujeme a ošetrujeme riziko. Podľa \cite{BSI3} tento proces pozostáva zo štyroch hlavných krokov a
-niekoľkých podkrokov (viď \ref{fig:risk-analysis-bsi3}).
+Analýza rizík je proces, ktorým identifikujeme, vyhodnocujeme a ošetrujeme riziká voči aktívam organizácie.
+Podľa \cite{BSI3} tento proces pozostáva zo štyroch hlavných krokov a niekoľkých podkrokov (viď \ref{fig:risk-analysis-bsi3}).
 V časti \ref{sec:bsiphilosophy} sme naznačili, že BSI sa snaží \say{odbremeniť} malé a stredne veľké organizácie, čo môžeme vidieť aj v
 v tom, ako postupovali pri analýze rizík: rozdelili ju na dve časti, a to implicitnú a explicitnú.
 
 \input tikz/risk-analysis-bsi3.tex
 
-\textbf{Implicitná} časť analýzy rizík je tá, ktorú za nás vykonal BSI a je súčasťou IT-Grundshutz kompendia \cite{GSK}. BSI vybral
+\textbf{Implicitná} časť analýzy rizík je tá, ktorú za nás vykonal BSI a je súčasťou IT-Grundshcutz kompendia \cite{GSK}. BSI vybral
 najčastejšie\footnote{Podľa \cite{mngmtkib} je to 80\% spoločných aktív, zvyšných 20\% tvoria aktíva špecifické pre konkrétnu organizáciu.}
 aktíva, ktoré používa väčšina organizácii a pre ne vykonali analýzu rizík. Všetky potrebné informácie (popis, cieľ, rozsah, opatrenia) sú
 detailne obsiahnuté v moduloch \cite{GSK}.
 
 \textbf{Explicitná} časť analýzy rizík pokrýva tie aktíva, ktoré nemôžeme namapovať na žiaden modul \cite{GSK} alebo bezpečnostné opatrenia pre
 namapovaný modul \cite{GSK} neposkytujú dostatočnú ochranu. Návod, ako môžeme vykonať explicitnú analýzu rizík pre aktívum popisuje \cite{BSI3}.
-Vo zvyšnej časti práce budeme pojmom analýza rizík referovať na \emph{explictnú analýzu rizík}, pokiaľ explicitne neuvedieme, že referejueme na
-\emph{implicitnú analýzu rizík}.
+V nasledujúcich častiach práce budeme pod pojmom analýza rizík chápať \emph{explictnú analýzu rizík}, pokiaľ explicitne neuvedieme, že 
+referujeme na \emph{implicitnú analýzu rizík}.
 
 V minulej časti (\ref{sec:isms}) sme popísali kroky vedúce k analýze rizík, ktoré za pomoci \cite{BSI2} vieme zhrnúť na:
 \begin{itemize}[nosep]
     \item inicializácia systematického procesu KIB
     \item určenie rozsahu bezpečnostného konceptu, t.j. určenie informačného systému
     \item vypracovanie štrukturovanej analýzy informačného systému
-    \item posúdenie bezpečnostných požiadaviek na aktíva
+    \item posúdenie bezpečnostných požiadaviek aktív
     \item modelovanie aktív na moduly IT-Grundschutz \cite{GSK}
     \item vykonanie kontroly IT-Grundschutz
 \end{itemize}
@@ -50,14 +51,18 @@ Predpokladajme organizáciu Národný olympijský inštitút pre pečenie (NOIP)
 pečenia naprieč Slovenskom. Nakoľko NOIP je štátna inštitúcia, vzťahujú sa na ňu relevantné zákony KIB (viď kapitolu \ref{chap:zakony}), a preto za pomoci 
 manažéra KIB sme iniciovali bezpečnostný proces.
 
-NOIP je moderná organizácia a jej zamestnanci sú vybavení pracovnými notebookmi, pomocou ktorých vykonávajú svoju pracovnú náplň, ako napríklad komunikácia s kolegami,
-organizátormi a súťažiacimi. Počas analýzy procesov a bezpečnostných požiadaviek sme dospeli k tomu, že notebooky sú kľúčovým aktívom pre zamestnancov. Špecifická dynamika
-organizovania olympiád (cestovanie a prítomnosť na podujatiach) a administratíva (spracovanie osobných údajov a utajenie úloh) nás prinútila toto aktívum
-podrobiť explicitnej analýze rizík. Notebooky sme vo fáze modelovania namapovali na modul \cite{GSK} \emph{SYS.3.1 Laptops}.
+NOIP je moderná organizácia a jej zamestnanci sú vybavení pracovnými notebookmi, pomocou ktorých vykonávajú svoje pracovné povinnosti, ako napríklad
+komunikácia s kolegami, organizátormi a súťažiacimi. Počas analýzy procesov a bezpečnostných požiadaviek sme dospeli k tomu, že notebooky sú kľúčovým
+aktívom pre zamestnancov. Špecifická dynamika organizovania olympiád (cestovanie a prítomnosť na podujatiach) a administratíva (spracovanie osobných
+údajov a utajenie úloh) nás prinútila toto aktívum podrobiť explicitnej analýze rizík. Pre notebooky sme vo fáze modelovania použili modul \cite{GSK}
+\emph{SYS.3.1 Laptops}.
 
 \subsection{Určenie relevantných hrozieb}
-Pri určovaní relevantných hrozieb vychádzame z modulu, na ktorý sme aktívum namapovali. Postupujeme v troch krokoch, najprv z katalógu \cite{GSK} pre relevantný modul
-zozbierame identifikované základné hrozby, potom posúdime relevantnosť základných hrozieb z katalógu a identifikujeme dodatočné špecifické hrozby.
+Pri určovaní relevantných hrozieb vychádzame z modulu, na ktorý sme aktívum namapovali. Postupujeme v troch krokoch, najprv z katalógu \cite{GSK}
+pre relevantný modul zozbierame identifikované základné hrozby, potom posúdime relevantnosť základných hrozieb z katalógu a identifikujeme
+dodatočné špecifické hrozby. Pri určovaní relevantných hrozieb voči aktívu vychádzame z modulu, ktorý je najbližší analyzovanému aktívu (v našom
+prípade to je modul \emph{SYS.3.1 Laptops}.) Postupujeme v troch krokoch, najprv z katalógu [GSK] pre relevantný modul zozbierame identifikované
+základné hrozby, potom posúdime relevantnosť základných hrozieb z katalógu a identifikujeme dodatočné špecifické hrozby. 
 
 Relevantnosť základnej hrozby vyjadrujeme v troch mierach irelevantná, nepriamo relevantná a relevantná (pozri vysvetlenie \ref{tab:elemthreatrel}).
 \begin{table}

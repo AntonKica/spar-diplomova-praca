@@ -2,12 +2,13 @@
 \addcontentsline{toc}{chapter}{Úvod}
 \markboth{Úvod}{Úvod}
 
-Za posledných päť rokov sme mohli byť svedkami radikálneho technologického posunu a transformácie vo svete informačných technológií.
-Či už ide o nevinný veľký jazykový model (LLM) GPT-3 z roku 2020, ktorý odštartoval ďalší \enquote{boom} vo výskumnej oblasti umelej
+\section*{Predhovor a motivácia}
+Za posledných šesť rokov sme mohli byť svedkami radikálneho technologického posunu a transformácie vo svete informačných technológií.
+Či už ide o nevinný veľký jazykový model (LLM) GPT-3 predstavený v roku 2020, ktorý odštartoval ďalší závod vo výskumnej oblasti umelej
 inteligencie, kedy v roku 2026 môžu amatéri použiť \enquote{agentic} zručnosti najnovších LLM na podniknutie kybernetických útokov;
-alebo v dôsledku globálnej pandémie vzostup práce z domu (\emph{homeoffice}), technológii VPN a digitálnych služieb; alebo mnohé
-údajne kybernetické útoky\footnote{Ktoré sú súčasťou hybridnej vojny.} súvisiace s Rusko-­ukrajinskou vojnou, cielené na štátne weby
-a systémy rôznych krajín sveta.
+alebo v dôsledku globálnej pandémie vzostup práce z domu (\emph{homeoffice}), technológii VPN a digitálnych služieb; alebo mnohé údajne
+kybernetické útoky\footnote{Ktoré sú súčasťou hybridnej vojny.} súvisiace s Rusko-­ukrajinskou vojnou, cielené na štátne weby a systémy
+rôznych krajín sveta.
 
 Aj vo svetle týchto udalosti sa kybernetická a informačná bezpečnosť (KIB) stáva omnoho väčšou nevyhnuteľnosťou pre organizácie a štátne
 inštitúcie pôsobiace v digitálnom priestore. Bezpečnosť informačných systémov už nestačí riešiť iba na úrovni kódu a vývoja
@@ -17,9 +18,42 @@ systému riadenia informačnej bezpečnosti (ISMS), ktorý vynucujeme politikou 
 zdokumentovať všetky (kritické) aktíva, stanoviť bezpečnostné požiadavky vzhľadom na základné hodnoty CIA, identifikovať relevantné
 hrozby, vyhodnotiť potenciálne riziká a zaviesť bezpečnostné opatrenia, aby sme zabezpečili želanú úroveň bezpečnosti v organizácií.
 
+Na Slovensku máme nedostatok odborníkov v oblasti kybernetickej a informačnej bezpečnosti\footnote{Počas reportáže TV Markíza o
+kybernetickom útok na kataster v roku 2025 vyslovil odborník tézu: \enquote{\ldots hovorí sa o tom, že chýba až 20 000 ľudí v
+kybernetickej bezpečnosti.}.}. Organizácia alebo štátna inštitúcia, ktorá sa rozhodne riešiť KIB pre svoj informačný systém, môže
+siahnuť po vlastnom zamestnancovi, človekovi vyškoleným kompetenčným centrom\footnote{Národná odborná inštitúcia koordinujúca certikáciu
+v oblasti kybernetickej bezpečnosti, FEI STU ku roku 2025 začalo ponúkať kurzy a školiť zamestnancov verejnej správy.}, outsourcovať
+bezpečnosť na externého zamestnanca alebo outsourcovať celý informačný systém. Naša práca sa zameriava na človeka, ktorý spadá do
+prvých dvoch kategórií, kde predpokladáme elementárnu znalosť KIB, t.j. porozumenie prínosu KIB na zaistenie požadovanej bezpečnosti
+aktív voči hrozbám, aby sme minimalizovali potenciálne riziká, ktoré z nich vyplývajú.
+
 V tejto diplomovej prácu sa venuje analýze rizík, ktorá je kritickou súčasťou ISMS. Vychádzajúc z nemeckého IT-Grdunschutz-u a
 príručke o analýze rizík \cite{BSI3}, popíšeme potrebný kontext, vysvetlíme celý proces, navrhneme a implementujeme \enquote{proof-of-concept}
 systém na podporu analýzy rizík. Touto prácou pokračujeme a obsahovo nadväzujeme na našu predchádzajúcu bakalársku prácu \cite{BP},
 kde sme analyzovali zákony \cite{ZoKB}, \cite{ZoITVS} a súvisiace vyhlášky\footnote{Analyzovali sme legislatívne povinnosti, ktoré
 vyplývajú pre prevádzkovateľov základných služieb a poskytovateľov ISVS.}, popísali sme ISMS (podľa \cite{BSI1} a \cite{BSI2}) a
-navrhli sme jednoduchý systém, ktorý má pomôcť zaviesť ISMS pre malé ISVS. 
+navrhli sme jednoduchý systém, ktorý má pomôcť zaviesť ISMS pre malé ISVS.
+
+\section*{Obsah práce a odpočet zadania}
+Práca pozostáva z 5 kapitol, kde čitateľovi za pomoci IT-Grundschutz sprostredkujeme potrebné znalosti KIB, vysvetlíme ISMS a
+význam politiky KIB, ako určiť bezpečnostné požiadavky, prevedieme ho procesom analýzy rizík podľa \cite{BSI3}, navrhneme a čiastočne
+implementujeme systém na podporu analýzy rizík a nakoniec posúdime, čo sa nám podarilo a čím by sa mohli ďalšie záverečné práce zaoberať:
+\begin{itemize}[nosep]
+    \item \ref{chap:terms}, v tejto kapitole čitateľovi vysvetlíme pojmy z informačnej bezpečnosti a ustanovíme si jednotnú
+    interpretáciu termínov
+    \item \ref{chap:it-grundschutz}, v tejto kapitole čitateľa oboznámime so IT-Grundschutz-om nemeckého úradu BSI, vysvetlíme význam
+    ISMS a politiky KIB, ako potrebný kontext pre procesu analýzy rizík
+    \item \ref{chap:it-grundschutz}, v tejto kapitole čitateľa prevedieme procesom analýzy rizík podľa \cite{BSI3} za pomoci
+    fiktívnej organizácie s príkladovými výstupmi jednotlivých krokov analýzy rizík a ku koncu vysvetlíme, ako máme určovať
+    bezpečnostné požiadavky pre aktívum
+    \item \ref{chap:application}, v tejto kapitole definujeme požiadavky a vyšpecifikujeme systém; následne implementujeme \enquote{proof-of-concept}
+    webovú aplikáciu, pričom čitateľovi ukážeme funkcionalitu a odôvodníme dizajnové rozhodnutia 
+    \item \ref{chap:future-works}, v tejto kapitole rozoberieme, čo sa nám podarilo, problematické úseky pri návrhu a implementácii systému,
+    ktoré veci sme z práce vynechali a potenciálne smery, ktoré by mohli preskúmať nadväzujúce záverečné práce
+\end{itemize}
+
+V zadaní
+\begin{enumerate}[nosep,label=a)]
+    \item a
+    \item b
+\end{enumerate}

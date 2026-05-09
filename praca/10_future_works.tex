@@ -1,7 +1,8 @@
 \chapter{Diskusia: problémy a kam ďalej}
 \label{chap:future-works}
 
-V poslednej kapitole by sme radi čitateľa zasvätili do problémov, vyhodených častiach a námetov na ďalšiu preskúmanie či záverečné práce.
+V poslednej kapitole by sme radi čitateľa hlbšie zasvätili do problémov, na ktoré sme narazili, častiach, ktoré sme z práce vypustili a námetov na ďalšie
+skúmanie či na témy záverečných prác
 
 \section{Zapracovanie návodu do používateľského rozhrania}
 Ako sme už v úvode zdôraznili, nepodarilo sa nám nájsť zmysluplný spôsob, ako vložiť vedomosti a popis do systému. V konečnom dôsledku si myslíme,
@@ -33,14 +34,15 @@ systému alebo komponentov (pozri \ref{fig:abstraction-hierarchy}). \cite{CyBOK}
 
 \input{tikz/ras83-ra.tex}
 
-Za zmienku stojí určite americký NIST a ich \emph{special publications} (špeciálne publikácie). Ktoré sú zamerané na informačnú bezpečnosť veľkých
+Za zmienku stojí určite americký NIST a ich séria dokumentov \emph{special publications} (špeciálne publikácie), ktoré sú primárne zamerané na informačnú bezpečnosť
 federálnych agentúr. \cite{NIST-800/39} sprevádza manažmentom rizík v tzv. enterprise (podnikovej) architektúre, ktorá je súčasťou \emph{enterprise risk management}.
 \cite{NIST-800/53} je americkým ekvivalentom katalógu \cite{GSK}, v ktorom môžme nájsť zoznam 20 rodín a zoznamom navrhovaných bezpečnostných opatrení s diskusiou,
 možnými rozšíreniami a vzťahmi s inými bezpečnostnými opatreniami. Okrajovo sme narazili ešte na \emph{Cybersecurity framework} \cite{CSF}, ktorý má údajne
 zjednodušiť \footnote{V kontraste so zložitými špeciálnymi publikáciám, ako aj tie, ktoré sme my zmienili v tomto texte.} organizáciám pripraviť sa na kybernetické
-hrozby v šiestich jadrových funkciách: riadiť, identifikovať, chrániť, zisťovať, reagovať a obnoviť. \cite{NIST-800/39} ani \cite{NIST-800/53} sme nakoniec v
-práci nezahrnuli, nakoľko sa sústreďujú na pomery SŠA, ktoré sa líšia od tých v Európskej únii\footnote{Nehovoriac o tom, že spomínané publikácie sú veľmi zdĺhavé
-a \enquote{ukecané}.}.
+hrozby v šiestich jadrových funkciách: riadiť, identifikovať, chrániť, zisťovať, reagovať a obnoviť. \cite{NIST-800/39} ani \cite{NIST-800/53} sme nakoniec do práce
+nezahrnuli, nakoľko pokrývajú rovnakú problematiku ako Grundschutz a štandardy BSU, ale vychádzajú z (právnych, organizačných) podmienok v USA, ktoré sa líšia od tých
+v Európskej únii\footnote{Spomínané publikácie obsahujú veľké množstvo manažérskych princípov, menej technických informácií, sú veľmi zdĺhavé a často idú do prílišných
+podrobností, ktorým by čitateľ so základnými vedomosťami KIB aj tak neporozumel.}.
 
 \section{Zakomponovanie bezpečnostných incidentov}
 
@@ -78,5 +80,5 @@ ako to je v prípade \emph{ESET Threat Intelligence}.} a na relevantné hrozby b
 Snaha BSI a IT-Grundschutz zvýšiť bezpečnostnú úroveň organizácií a štátnych inštitúcií v Nemecku sa aj napriek dlhoročnej snahe zdá byť neúspešná.
 V lete 2025 vrámci konferencie \emph{IT-Grundschutz-Tag} predstavitelia BSI priznali nedostatky \cite{GSK}, jedna z kritík sa týka orientácie \cite{GSK} na
 komponenty. Iniciatívou a víziou \emph{Grundschutz++} má byť zmena orientácie na procesy, kedy si organizácia môže sledovať postup implementácie ISMS.
-Prezentované boli aj mnohé ďalšie zmeny a zlepšenia (aj ako odpoveď na požiadvky \cite{NIS2}), v praxi to znamená novú metodológiu a nové štandardy,
-čím sa súčasný \cite{GSK} a jeho štandardy efektívne stanú zastaranými.
+Prezentované boli aj mnohé ďalšie zmeny a zlepšenia (aj ako odpoveď na požiadvky \cite{NIS2}). To znamená, že môžeme očakávať výrazné zmeny súčasného
+\cite{GSK} a jeho štandardov a časom možno aj novú metodológiu a nové štandardy.

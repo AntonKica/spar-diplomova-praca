@@ -135,6 +135,7 @@ Spojenie tabuliek cez \lstinline{risk_analysis_module} je iba unikátne zjednote
 V tejto časti sa zatiaľ nijak neodlišujeme od \cite{BSI3}, mimo tabuľky \lstinline{threat}, ktorú popíšeme v ďalšom kroku.
 
 \subsection{1. Identifikácia hrozieb}
+\label{sec:1_thrid}
 
 V našom systéme pracujeme čisto s modulmi, ktoré vyplývajú z mapovania aktív. Považujeme to za primerane zvolenú granularitu, ktorá
 dobre korešponduje so štandardom \cite{BSI2}, \cite{BSI3} a \cite{GSK} a nevytvára zbytočne komplikovanú medzi-reprezentáciu.
@@ -205,6 +206,7 @@ prečo práve štyri úrovne rizika, nakoľko sa čitateľovi môže zdať, že 
 \end{itemize}
 
 \subsection{3. Ošetrenie rizika}
+\label{sec:3_risktrm}
 
 \begin{figure}[!h]
 \begin{subfigure}{0.5\textwidth}
@@ -275,5 +277,22 @@ V \cite{BSI3} sa táto časť nenachádza.
 \includegraphics[width=0.7\linewidth]{images/pages/50-summary.png}
 \caption{Zhrnutie záverečných opatrení: používateľské rozhranie}
 \label{fig:50-summary}
-\subsection*{Zhrnutie návrhu systému}
 \end{figure}
+
+\subsection*{Zhrnutie návrhu systému}
+
+V tejto kapitole sme predstavili \emph{proof-of-concept} systém, ktorý bol založený na postupe z kapitoly \emph{\ref{chap:risk-analysis}
+-- \nameref{chap:risk-analysis}} a modifikovali sme niektoré časti, čím sme mierne sa odchýlili od \cite{BSI3}. Medzi najvýraznejšie
+zmeny patria:
+\begin{itemize}[nosep]
+    \item \emph{\ref{sec:1_thrid} -- \nameref{sec:1_thrid}}, základné hrozby sme obohatili o kategórie \cite{27005} a vizuálne sme rozdelili
+základné hrozby identifikované BSI pre daný modul
+    \item \emph{\ref{sec:3_risktrm} -- \nameref{sec:3_risktrm}}, možnosť, ako ošetriť riziká sme rozšírili z jedného (per modul a hrozbu)
+    na štyri druhy ošetrenia voči: \emph{konkrétnemu modulu a hrozbe, jednej hrozbe, jednému modulu a všetkým modulom a hrozbám}
+\end{itemize}
+
+
+Úmyselne sme do systému nevkladali roly, používateľov ani autentifikáciu, vzhľadom na to, že správu používateľov sme nepovažovali
+za kľúčovú funkcionalitu v návrhu. Prípadná integrácia autentifikácie voči serveru (napr. pomocou otvoreného štandardu OpenID) by si
+vyžadovala ošetrenie ciest webového rozhrania (podľa roly) a pridanie tabuľky a stĺpcov do relevantných tabuliek, čo ale vzhľadom
+na cieľ našej práce nie je zaujímavá úloha. Konkrétne návrhy na zlepšenie a rozšírenie systému prediskutujeme v nasledujúcej kapitole.

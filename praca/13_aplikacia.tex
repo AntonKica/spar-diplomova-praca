@@ -27,7 +27,7 @@ chrániť.}. Navrhnutý systém by mal:
 
 \subsection*{Prečo sa unúvať vymýšľať ďalší systém?}
 
-Pred pokračovaním do nami navrhnutého systému sa ešte pozastavíme pri krátkom opodstatnení potreby takéhoto systému, možno si čitateľ
+Pred pokračovaním do nami navrhnutého systému sa ešte pozastavíme pri krátkom opodstatnení potreby takéhoto systému. Možno si čitateľ
 práve pokladá otázku: \enquote{Naozaj nám nestačí si prečítať príručku \cite{BSI3} o analýze rizík?}
 
 Naša odpoveď by bola áno aj nie. Áno z toho dôvodu, že znalosti z \cite{BSI3} potrebujeme na pochopenie procesu analýzy rizík. Nie,
@@ -48,9 +48,9 @@ knižnicou na generovanie OpenAPI utoipa. Ako databázu sme si vybrali relačnú
          \hline
          \textbf{nástroj} & \textbf{verzia} & \textbf{popis} \\ 
          \hline
-         \rowcolor{red!50}
-         \textbf{Noode} & 24 & prostredie pre vývoj a beh webových aplikácií \\ 
          \hline
+         \rowcolor{cyan!50}
+         \textbf{Noode} & 24 & prostredie pre vývoj a beh webových aplikácií \\ 
          \hline
          \rowcolor{cyan!50}
          \textbf{HTML5} & 5 & základný dokument webového rozhrania \\ 
@@ -80,7 +80,7 @@ knižnicou na generovanie OpenAPI utoipa. Ako databázu sme si vybrali relačnú
 \end{table}
 
 Vo výbere nástrojov nefiguroval žiaden veľmi špecifický dôvod, nástroje pre frontend sme vyberali tak, aby nám pomohol rýchlo a
-štruktúrovane vyvíjať používateľské rozhranie. Jazyk backendu sme si zvolili Rust, lebo preferujeme statické typovanie pri vývoji,
+štruktúrovane vyvíjať používateľské rozhranie. Za programovací jazyk na backend-e sme si zvolili Rust, lebo preferujeme statické typovanie pri vývoji,
 čo nám ustrážilo vstupy, výstupy a transformácie na oboch úsekoch databázy a HTTP servera. Voľba SQL vyplývala zo skutočnosti,
 že dáta majú pomerne jasnú formu, preto sme ani nevyhľadávali riešenie postavené na databázach typu NoSQL a pod. V ďalších častiach
 nebudem rozlišovať databázu, ale pojmom backend budeme zastrešovať aj pojem databázy, keďže tieto dve vrstvy veľmi úzko spolupracujú
@@ -165,7 +165,7 @@ fázu, v ktorej sme aktívum vybrali.
 
 V porovnaní s 200-3 sme sa rozhodli rozdeliť identifikáciu základných hrozieb až na dve časti: relevantné (vyplývajúce analýzy GSK)
 a dodatočné (zvyšné hrozby z \cite{GSK}) identifikáciu špecifických hrozieb sme ponechali. Navyše sme kategorizovali základné hrozby
-(aj špecifické hrozby) do kategórií z \cite{27005}, tabuľka mapovaní základných hrozieb \cite{GSK} hrozieb do kategórií je v elektronickej prílohe.
+(aj špecifické hrozby) do kategórií z \cite{27005}, tabuľka mapovaní základných hrozieb \cite{GSK} do kategórií je v elektronickej prílohe.
 
 Obe zmeny, rozdelenie identifikácie základných hrozieb a dodatočná kategorizácia, majú pomôcť užívateľovi sa lepšie zorientovať v katalógu
 47 hrozieb. Poslednú pomôcku sme pridali tabuľku zhrnutia identifikovaných hrozieb, aby si užívateľ mohol porovnať podobné/odlišné hrozby.
@@ -229,8 +229,8 @@ prečo práve štyri úrovne rizika, nakoľko sa čitateľovi môže zdať, že 
 \end{figure}
 
 Tabuľka \lstinline{risk_treatment} predstavuje zvolené ošetrenie (redukcia, prenesenie, akceptovanie, vyhnutie sa) pre danú
-dvojicu hrozby a modulu. Cez tabuľky \lstinline{risk_treatment_security_measure} a \lstinline{risk_treatment_requirement}
-spájame vybranú množinu opatrení (\lstinline{security_measure}) a požiadaviek pre modul (\lstinline{it_grundschutz_module_requirement}).
+dvojicu hrozby a modulu. Cez tabuľky \newline \lstinline{risk_treatment_security_measure} a \lstinline{risk_treatment_requirement}
+spájame vybranú množinu opatrení (\lstinline{security_measure}) a požiadaviek pre modul \newline (\lstinline{it_grundschutz_module_requirement}).
 
 V tejto časti sa najviac odlišujeme od štandardu \cite{BSI3}, kde \cite{GSK} ošetruje každú kombináciu hrozby a modulu samostatne,
 čo nám prišlo pracné. Preto sme sa rozhodli rozšíriť pôsobnosť opatrení na štyri druhy. Opatrenie sa môže vzťahovať na:
@@ -258,10 +258,10 @@ V tejto časti sa najviac odlišujeme od štandardu \cite{BSI3}, kde \cite{GSK} 
 \label{fig:40-check-db}
 \end{figure}
 
-Pri prechode do kroku pre každý riadok vybraného bezpečnostného opatrenia (\lstinline{risk_treatment_security_measure}
+Pri prechode do kroku pre každý riadok vybraného bezpečnostného opatrenia \newline (\lstinline{risk_treatment_security_measure}
 voči aktívu, modulu, aktívu a modulu alebo plošne) vygenerujeme nový riadok  \lstinline{risk_treatment_seurity_measure_assessment},
 Podobne pre \lstinline{risk_treatment_requirement} užívateľ kontroluje a určuje implementáciu jednotlivých opatrení
-(stĺpec \lstinline{status}) hodnotou nehodnotené, neimplementované, čiastočné, úplne a nadbytočne, slovne môže vyhodnotiť
+(stĺpec \lstinline{status}) hodnotou \emph{nehodnotené, neimplementované, čiastočné, úplne a nadbytočne}; a slovne môže vyhodnotiť
 stav (stĺpec \lstinline{evaluation}).
 
 Po užívateľovi žiadame, aby posúdil stav každého navrhnutého opatrenia. Od štandardov \cite{BSI3} sa v tomto kroku nelíšime.
@@ -287,12 +287,12 @@ zmeny patria:
 \begin{itemize}[nosep]
     \item \emph{\ref{sec:1_thrid} -- \nameref{sec:1_thrid}}, základné hrozby sme obohatili o kategórie \cite{27005} a vizuálne sme rozdelili
 základné hrozby identifikované BSI pre daný modul
-    \item \emph{\ref{sec:3_risktrm} -- \nameref{sec:3_risktrm}}, možnosť, ako ošetriť riziká sme rozšírili z jedného (per modul a hrozbu)
+    \item \emph{\ref{sec:3_risktrm} -- \nameref{sec:3_risktrm}}, možnosť, ako ošetriť riziká, sme rozšírili z jedného (per modul a hrozbu)
     na štyri druhy ošetrenia voči: \emph{konkrétnemu modulu a hrozbe, jednej hrozbe, jednému modulu a všetkým modulom a hrozbám}
 \end{itemize}
 
 
 Úmyselne sme do systému nevkladali roly, používateľov ani autentifikáciu, vzhľadom na to, že správu používateľov sme nepovažovali
-za kľúčovú funkcionalitu v návrhu. Prípadná integrácia autentifikácie voči serveru (napr. pomocou otvoreného štandardu OpenID) by si
+za kľúčovú funkcionalitu pri návrhu systému. Prípadná integrácia autentifikácie voči serveru (napr. pomocou otvoreného štandardu OpenID) by si
 vyžadovala ošetrenie ciest webového rozhrania (podľa roly) a pridanie tabuľky a stĺpcov do relevantných tabuliek, čo ale vzhľadom
 na cieľ našej práce nie je zaujímavá úloha. Konkrétne návrhy na zlepšenie a rozšírenie systému prediskutujeme v nasledujúcej kapitole.

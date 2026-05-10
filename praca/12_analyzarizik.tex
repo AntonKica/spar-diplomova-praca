@@ -9,7 +9,7 @@ organizácie, čo môžeme vidieť aj v tom, ako postupovali pri analýze rizík
 \input tikz/risk-analysis-bsi3.tex
 
 \textbf{Implicitná} časť analýzy rizík je tá, ktorú za nás vykonal BSI a je súčasťou Kompendia IT-Grundschutz \cite{GSK}. BSI vybral
-najčastejšie\footnote{Podľa \cite{mngmtkib} je to 80\% spoločných aktív, zvyšných 20\% tvoria aktíva špecifické pre konkrétnu organizáciu.}
+najčastejšie\footnote{Podľa neoficiálnych odhadov je to 80\% spoločných aktív, zvyšných 20\% tvoria aktíva špecifické pre konkrétnu organizáciu.}
 aktíva, ktoré používa väčšina organizácii a pre ne vykonal analýzu rizík. Všetky potrebné informácie (popis, cieľ, rozsah, opatrenia) sú
 detailne obsiahnuté v moduloch \cite{GSK}.
 
@@ -18,13 +18,13 @@ namapovaný modul \cite{GSK} neposkytujú dostatočnú ochranu. Návod, ako mô�
 V nasledujúcich častiach práce budeme pod pojmom analýza rizík chápať \emph{explictnú analýzu rizík}, pokiaľ explicitne neuvedieme, že 
 odkazujeme na \emph{implicitnú analýzu rizík}.
 
-V minulej časti (\ref{sec:isms}) sme popísali kroky vedúce k analýze rizík, ktoré za pomoci \cite{BSI2} vieme zhrnúť na:
+V minulej kapitole (časť \emph{\ref{sec:isms} -- \nameref{sec:isms}}) sme popísali kroky vedúce k analýze rizík, ktoré za pomoci \cite{BSI2} vieme zhrnúť na:
 \begin{itemize}[nosep]
     \item inicializácia systematického procesu KIB
     \item určenie rozsahu bezpečnostného konceptu, t.j. určenie informačného systému
     \item vypracovanie štrukturovanej analýzy informačného systému
     \item posúdenie bezpečnostných požiadaviek aktív
-    \item modelovanie aktív na moduly IT-Grundschutz \cite{GSK}
+        \item modelovanie aktív na moduly IT-Grundschutz (\cite{GSK})
     \item vykonanie kontroly IT-Grundschutz
 \end{itemize}
 
@@ -37,7 +37,7 @@ náročnosť a komplexnosť problémov.
 \subsection*{Fiktívny scenár}
 
 Predpokladajme organizáciu Národný olympijský inštitút pre pečenie (NOIP), ktorého primárnou agendou je zabezpečovať organizáciu rôznych kôl a kategórií
-pečenia naprieč Slovenskom. Nakoľko NOIP je štátna inštitúcia, vzťahujú sa na ňu relevantné zákony KIB (viď kapitolu \ref{chap:zakony}), a preto za pomoci 
+pečenia naprieč Slovenskom. Nakoľko NOIP je štátna inštitúcia, vzťahujú sa na ňu relevantné zákony KIB (spomínane v úvode práce), a preto za pomoci 
 manažéra KIB sme iniciovali bezpečnostný proces.
 
 NOIP je moderná organizácia a jej zamestnanci sú vybavení pracovnými notebookmi, pomocou ktorých vykonávajú svoje pracovné povinnosti, ako napríklad
@@ -50,11 +50,10 @@ aktívom pre zamestnancov. Špecifická dynamika organizovania olympiád (cestov
 Pri určovaní relevantných hrozieb vychádzame z modulu, na ktorý sme aktívum namapovali. Postupujeme v troch krokoch, najprv z katalógu \cite{GSK}
 pre relevantný modul zozbierame identifikované základné hrozby, potom posúdime relevantnosť základných hrozieb z katalógu a identifikujeme
 dodatočné špecifické hrozby. Pri určovaní relevantných hrozieb voči aktívu vychádzame z modulu, ktorý je najbližší analyzovanému aktívu (v našom
-prípade to je modul \emph{SYS.3.1 Laptops}.) Postupujeme v troch krokoch, najprv z katalógu [GSK] pre relevantný modul zozbierame identifikované
-základné hrozby, potom posúdime relevantnosť základných hrozieb z katalógu a identifikujeme dodatočné špecifické hrozby. 
+prípade to je modul \emph{SYS.3.1 Laptops}.)
 
 Relevantnosť základnej hrozby vyjadrujeme v troch mierach \emph{irelevantná, nepriamo relevantná a relevantná} (pozri vysvetlenie \ref{tab:elemthreatrel}).
-\begin{table}
+\begin{table}[h!]
     \caption{Relevantnosť základnej hrozby}
     \label{tab:elemthreatrel}
     \begin{center}
@@ -136,10 +135,10 @@ Keď máme zostavený zoznam relevantných hrozieb, ďalším krokom je klasifik
 
 \subsection{Klasifikácia rizík}
 
-Pre identifkované hrozby stanovujeme hodnoty rizika, pričom hodnotu rizika vyjadrujeme, ako strednú hodnotu dopadu hrozby, t.j.
+Pre identifkované hrozby stanovujeme hodnoty rizika, pričom hodnotu rizika vyjadrujeme ako strednú hodnotu dopadu hrozby, t.j.
 $riziko = pravdepodobnosť * dopad hrozby$ \cite{MFSRIB}, neexistuje univerzálny spôsob, ako určiť hodnotu týchto premenných. Pri určovaní
 dopadu môžeme brať do úvahy potenciálne finančné následky, priamy a latentný dopad na okolie alebo úsilie potrebne na nápravu a odstránenie
-škody, pri určovaní pravdepodobnosti môžem vychádzať z vlastných skúseností alebo štatistiky\footnote{Treba si však dať pozor, nakoľko
+škody. Pri určovaní pravdepodobnosti môžem vychádzať z vlastných skúseností alebo štatistiky\footnote{Treba si však dať pozor, nakoľko
 výsledky štatistiky sú závisle od kontextu a interpretácia jej výsledkov  môže byť subjektívna.}. Vo všeobecnosti na vyjadrenie rizika
 používame dve metódy kvalitatívnu a kvantitatívnu, štandardy BSI využívajú tú prvú, no vysvetlíme oboje.
 
@@ -219,7 +218,7 @@ prispôsobiť svojím vlastným podmienkam a potrebám.
     \end{center}
 \end{table}
 
-Nakoniec vzťah pravdepodobnosti, potenciálnej škody a potenciálneho dopadu vyjadríme v maticou klasifikácie rizík \ref{fig:risk-matrix-bsi3}.
+Nakoniec vzťah pravdepodobnosti, potenciálnej škody a potenciálneho dopadu vyjadríme maticou klasifikácie rizík \ref{fig:risk-matrix-bsi3}.
 \input{tikz/risk-matrix-bsi3.tex}
 
 \subsection*{Klasifikácia rizík: fiktívny scenár}
@@ -242,12 +241,12 @@ druhu ošetrenia.
 \textbf{Vyhnúť sa} riziku znamená odstrániť príčinu rizika alebo nositeľa rizika. Tento prístup si môžme zvoliť v prípade, že zavedenie efektívnych
 protiopatrení je príliš nákladné alebo značne obmedzujú prístup/správu systému. Tiež môžeme zvážiť reštrukturalizovať procesy a znížiť tým náklady.
 
-\textbf{Redukovať} riziko znamená vyvinúť a zaviesť efektívne opatrenia znižujúce pravdepodobnosť alebo dopady hrozby. Opatrenia môžeme vyvíjať
+\textbf{Redukovať} riziko znamená vyvinúť a zaviesť efektívne opatrenia znižujúce pravdepodobnosť alebo dopad hrozby. Opatrenia môžeme vyvíjať
 na základe predchádzajúcich skúsenosti, štandardov, \emph{best-practices} alebo za podpory odborníkov a špecialistov v odvetví.
 
 \textbf{Preniesť} riziko vieme na tretiu stranu istou formou poistenia alebo \emph{outsourcingu}. V zásade ide o finančné škody, kapacitné nedostatky
 alebo nedostatočný/chýbajúci \emph{know-how} na zavedenie vlastného riešenia. Pri tejto forme ošetrenia rizika si potrebujeme vhodne nastaviť zmluvné
-podmienky alebo zmeniť cez dodatky v prípade už uzavretých zmlúv.
+podmienky alebo ich zmeniť cez dodatky v prípade už uzavretých zmlúv.
 
 
 \textbf{Akceptovať} riziko znamená zmieriť sa s potenciálnymi následkami naplnenia hrozby. Akceptované riziko následne monitorujeme ako zostatkové riziko.
@@ -373,7 +372,7 @@ tie najzaujímavejšie príklady.
     \end{center}
 \end{table}
 
-Poslednú praktickú radu, ktorú uvedieme, je sada štyroch princípov, ktorými by sme sa mali riadiť pri určovaní
+Poslednú praktickú radu, ktorú uvedieme, je sada piatich princípov, ktorými by sme sa mali riadiť pri určovaní
 bezpečnostných požiadaviek:
 \begin{itemize}[nosep]
     \item \textbf{dedenie}, postupujeme smerom z vrchu, biznisové procesy a aplikácie, potom ich individuálne prvky, ako miestností, informačné systémy a komunikačné linky

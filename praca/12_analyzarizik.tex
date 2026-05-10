@@ -1,34 +1,22 @@
-%\chapter{Riadenie a analýza rizík}
-%Posúdenie riziká je systematický proces, ktorým presne vyjadrujeme hodnotu rizika (kvantitatívne alebo kvalitatívne),
-%t.z. špecifikovať to, čo je ohrozené, vypočítať pravdepodobnosť neželaných zložiek.
-
-%Riziko je veľmi široký pojem, ktorého význam sa v rôznych oblastiach často líši, pre príklad ilustrujeme niekoľko takých príkladov \cite{WikiRisk}.
-%V ekonomike znamená riziko neistotu ohľadom straty, vo financiách volatilita výnosu alebo v zdravotníctve možnosť, že nám niečo spôsobí ujmu na zdraví.
-
-%V tejto práci definujeme pojem riziko, ako pravdepodobnosť, že ľudské konanie alebo udalosti vedú k následkom, ktoré majú vplyv na to, čo si ľudia cenia \cite{Ras83}.
-
-
-% Na začiatok by sme čítateľa radi upozornili na nekonzistentnosť termínov naprieč rôznymi štandardami, čo môže vyústiť v zbytočný zmätok a chaos. V tejto práci sa
-
 \chapter{Analýza rizík}
 \label{chap:risk-analysis}
 \section{Analýza rizík podľa BSI 200-3}
-Analýza rizík je proces, ktorým identifikujeme, vyhodnocujeme a ošetrujeme riziká voči aktívam organizácie.
-Podľa \cite{BSI3} tento proces pozostáva zo štyroch hlavných krokov a niekoľkých podkrokov (viď \ref{fig:risk-analysis-bsi3}).
-V časti \ref{sec:bsiphilosophy} sme naznačili, že BSI sa snaží \say{odbremeniť} malé a stredne veľké organizácie, čo môžeme vidieť aj v
-v tom, ako postupovali pri analýze rizík: rozdelili ju na dve časti, a to implicitnú a explicitnú.
+Analýza rizík je proces, ktorým identifikujeme a vyhodnocujeme riziká voči aktívam organizácie\footnote{Zníženie rizika spadá do správy
+rizík, čo je oddelený proces.}. Podľa \cite{BSI3} tento proces pozostáva zo štyroch hlavných krokov a niekoľkých podkrokov (viď
+\ref{fig:risk-analysis-bsi3}). V časti \ref{sec:bsiphilosophy} sme naznačili, že BSI sa snaží \say{odbremeniť} malé a stredne veľké
+organizácie, čo môžeme vidieť aj v tom, ako postupovali pri analýze rizík: rozdelili ju na dve časti, a to implicitnú a explicitnú.
 
 \input tikz/risk-analysis-bsi3.tex
 
-\textbf{Implicitná} časť analýzy rizík je tá, ktorú za nás vykonal BSI a je súčasťou IT-Grundshcutz kompendia \cite{GSK}. BSI vybral
+\textbf{Implicitná} časť analýzy rizík je tá, ktorú za nás vykonal BSI a je súčasťou Kompendia IT-Grundschutz \cite{GSK}. BSI vybral
 najčastejšie\footnote{Podľa \cite{mngmtkib} je to 80\% spoločných aktív, zvyšných 20\% tvoria aktíva špecifické pre konkrétnu organizáciu.}
-aktíva, ktoré používa väčšina organizácii a pre ne vykonali analýzu rizík. Všetky potrebné informácie (popis, cieľ, rozsah, opatrenia) sú
+aktíva, ktoré používa väčšina organizácii a pre ne vykonal analýzu rizík. Všetky potrebné informácie (popis, cieľ, rozsah, opatrenia) sú
 detailne obsiahnuté v moduloch \cite{GSK}.
 
 \textbf{Explicitná} časť analýzy rizík pokrýva tie aktíva, ktoré nemôžeme namapovať na žiaden modul \cite{GSK} alebo bezpečnostné opatrenia pre
 namapovaný modul \cite{GSK} neposkytujú dostatočnú ochranu. Návod, ako môžeme vykonať explicitnú analýzu rizík pre aktívum popisuje \cite{BSI3}.
 V nasledujúcich častiach práce budeme pod pojmom analýza rizík chápať \emph{explictnú analýzu rizík}, pokiaľ explicitne neuvedieme, že 
-referujeme na \emph{implicitnú analýzu rizík}.
+odkazujeme na \emph{implicitnú analýzu rizík}.
 
 V minulej časti (\ref{sec:isms}) sme popísali kroky vedúce k analýze rizík, ktoré za pomoci \cite{BSI2} vieme zhrnúť na:
 \begin{itemize}[nosep]
@@ -43,8 +31,8 @@ V minulej časti (\ref{sec:isms}) sme popísali kroky vedúce k analýze rizík,
 Postupnou implementáciou bezpečnostného konceptu sme sa dopracovali až ku kroku \emph{IT-Grundschutz check}, z ktorého nám vypadli tzv. cieľové objekty
 podliehajúce kontrole (\emph{angl. target objects under review}). Inými slovami sú to cieľové aktíva, voči ktorým potrebujeme explicitne vykonať
 analýzu rizík. Teraz prejdeme k detailom tohto procesu a vysvetlíme podrobne jednotlivé časti obrázku \ref{fig:risk-analysis-bsi3}, pre lepšie vysvetlenie 
-si zadefinujeme modelovú situáciu. Upozorňujeme autora, že realitu a detaily mierne skreslíme pre jednoduchosť ilustrácie. Uvedomujeme si potenciálnu
-náročnosť a komplexnosť problémov
+si zadefinujeme modelovú situáciu. Upozorňujeme čitateľa, že realitu a detaily mierne skreslíme pre jednoduchosť ilustrácie. Uvedomujeme si potenciálnu
+náročnosť a komplexnosť problémov.
 
 \subsection*{Fiktívny scenár}
 
@@ -65,7 +53,7 @@ dodatočné špecifické hrozby. Pri určovaní relevantných hrozieb voči akt�
 prípade to je modul \emph{SYS.3.1 Laptops}.) Postupujeme v troch krokoch, najprv z katalógu [GSK] pre relevantný modul zozbierame identifikované
 základné hrozby, potom posúdime relevantnosť základných hrozieb z katalógu a identifikujeme dodatočné špecifické hrozby. 
 
-Relevantnosť základnej hrozby vyjadrujeme v troch mierach irelevantná, nepriamo relevantná a relevantná (pozri vysvetlenie \ref{tab:elemthreatrel}).
+Relevantnosť základnej hrozby vyjadrujeme v troch mierach \emph{irelevantná, nepriamo relevantná a relevantná} (pozri vysvetlenie \ref{tab:elemthreatrel}).
 \begin{table}
     \caption{Relevantnosť základnej hrozby}
     \label{tab:elemthreatrel}
@@ -148,12 +136,12 @@ Keď máme zostavený zoznam relevantných hrozieb, ďalším krokom je klasifik
 
 \subsection{Klasifikácia rizík}
 
-Najčastejšie vyjadrujeme riziko ako strednú hodnotu dopadu hrozby, t.j. $riziko = pravdepodobnosť * dopad hrozby$ \cite{MFSRIB}, neexistuje
-univerzálny spôsob, ako určiť hodnotu týchto premenných. Pri určovaní dopadu môžeme brať do úvahy potenciálne finančné následky, priamy a
-latentný dopad na okolie alebo úsilie potrebne na nápravu a odstránenie škody, pri určovaní pravdepodobnosti môžem vychádzať z vlastných skúseností 
-alebo štatistiky\footnote{Treba si však dať pozor, nakoľko výsledky štatistiky sú závisle od kontextu a interpretácia jej výsledkov  môže
-byť subjektívna.}. Vo všeobecnosti na vyjadrenie rizika používame dve metódy kvalitatívnu a kvantitatívnu, štandardy BSI využívajú tú prvú,
-no vysvetlíme oboje.
+Pre identifkované hrozby stanovujeme hodnoty rizika, pričom hodnotu rizika vyjadrujeme, ako strednú hodnotu dopadu hrozby, t.j.
+$riziko = pravdepodobnosť * dopad hrozby$ \cite{MFSRIB}, neexistuje univerzálny spôsob, ako určiť hodnotu týchto premenných. Pri určovaní
+dopadu môžeme brať do úvahy potenciálne finančné následky, priamy a latentný dopad na okolie alebo úsilie potrebne na nápravu a odstránenie
+škody, pri určovaní pravdepodobnosti môžem vychádzať z vlastných skúseností alebo štatistiky\footnote{Treba si však dať pozor, nakoľko
+výsledky štatistiky sú závisle od kontextu a interpretácia jej výsledkov  môže byť subjektívna.}. Vo všeobecnosti na vyjadrenie rizika
+používame dve metódy kvalitatívnu a kvantitatívnu, štandardy BSI využívajú tú prvú, no vysvetlíme oboje.
 
 \textbf{Kvantitatívna metóda} vyjadruje hodnotu číselne ($interval <0,1>$), avšak problémom je presne číselne vyjadriť pravdepodobnosť a dopad
 v špecifickom kontexte našej organizácie, problematické sa môžu javiť nasledovné otázky \cite{MFSRIB}:
@@ -162,9 +150,9 @@ v špecifickom kontexte našej organizácie, problematické sa môžu javiť nas
     \item ako vyjadriť hodnotu nehmotných aktív?
 \end{itemize}
 
-\textbf{Kvalitatívna metóda} vyjadruje hodnotu slovne, IT-Grundschutz používa $4x4x4$ úrovní, v poradí pravdepodobnosť (\ref{tab:thrfreq}),
-dopadu (\ref{tab:thrdmg}) a riziko (\ref{tab:thrimp}). Prirodzene, v organizácii si počet a význam úrovní potrebujem prispôsobiť svojím vlastným
-podmienkam a potrebám. 
+\textbf{Kvalitatívna metóda} vyjadruje hodnotu slovne, IT-Grundschutz používa $4 \times 4 \times 4$ úrovní, v poradí pravdepodobnosť
+(\ref{tab:thrfreq}), dopadu (\ref{tab:thrdmg}) a riziko (\ref{tab:thrimp}). Prirodzene, v organizácii si počet a význam úrovní potrebujem
+prispôsobiť svojím vlastným podmienkam a potrebám. 
 \begin{table}[!h]
     \caption{Frekvencia výskytu}
     \label{tab:thrfreq}
@@ -223,9 +211,9 @@ podmienkam a potrebám.
         \hline
         stredné & navrhnuté alebo implementované bezpečnostné opatrenia nemusia byť dostatočné \\
         \hline
-        vysoké & navrhnuté alebo implementované bezpečnostné opatrenia poskytujú dostatočnú ochranu \\
+        vysoké & navrhnuté alebo implementované bezpečnostné opatrenia neposkytujú dostatočnú ochranu \\
         \hline
-        veľmi vysoké & navrhnuté alebo implementované bezpečnostné opatrenia poskytujú dostatočnú ochranu, v praxi sú málokedy akceptované \\
+        veľmi vysoké & navrhnuté alebo implementované bezpečnostné opatrenia neposkytujú dostatočnú ochranu, v praxi sú málokedy akceptované \\
         \hline
         \end{tabularx}
     \end{center}
@@ -235,7 +223,7 @@ Nakoniec vzťah pravdepodobnosti, potenciálnej škody a potenciálneho dopadu v
 \input{tikz/risk-matrix-bsi3.tex}
 
 \subsection*{Klasifikácia rizík: fiktívny scenár}
-Vychádajúc z fázy bezpečnostného procesu, kde sme definovali bezpečnostné požiadavky aktív, sme vytvorili tabuľku popisu hrozieb. Z predchádzajúcich
+Vychádzajúc z fázy bezpečnostného procesu, kde sme definovali bezpečnostné požiadavky aktív, sme vytvorili tabuľku popisu hrozieb. Z predchádzajúcich
 skúsenosti sme odhadli frekvenciu výskytu a potenciálny dopad a v kontexte načrtnutých scenárov sme objasnili vyplývajúce riziko v tabuľke
 \ref{tbl:riskassesmentexample}, pre prehľadnosť sme uviedli iba jednu klasifikáciu hrozby. Upozorníme na to, že nie vždy sú potrebné rozsiahle popisy
 a vysvetlenia, najmä ak sú vo svojej podstate triviálne. Písanie detailných opisov a zdôvodnení sa môže stať časovo netriviálnou záležitosťou v prípade
@@ -254,7 +242,7 @@ druhu ošetrenia.
 \textbf{Vyhnúť sa} riziku znamená odstrániť príčinu rizika alebo nositeľa rizika. Tento prístup si môžme zvoliť v prípade, že zavedenie efektívnych
 protiopatrení je príliš nákladné alebo značne obmedzujú prístup/správu systému. Tiež môžeme zvážiť reštrukturalizovať procesy a znížiť tým náklady.
 
-\textbf{Redukovať} riziko znamená vyvinúť a zaviesť efektívne opatrenia zničujúce pravdepodobnosť alebo dopady hrozby. Opatrenia môžeme vyvíjať
+\textbf{Redukovať} riziko znamená vyvinúť a zaviesť efektívne opatrenia znižujúce pravdepodobnosť alebo dopady hrozby. Opatrenia môžeme vyvíjať
 na základe predchádzajúcich skúsenosti, štandardov, \emph{best-practices} alebo za podpory odborníkov a špecialistov v odvetví.
 
 \textbf{Preniesť} riziko vieme na tretiu stranu istou formou poistenia alebo \emph{outsourcingu}. V zásade ide o finančné škody, kapacitné nedostatky
@@ -262,9 +250,9 @@ alebo nedostatočný/chýbajúci \emph{know-how} na zavedenie vlastného riešen
 podmienky alebo zmeniť cez dodatky v prípade už uzavretých zmlúv.
 
 
-\textbf{Akceptovať} riziko znamená stotožniť sa s potenciálnymi následkami, ktoré následne monitorujeme ako zostatkové riziko. V niektorých prípadoch
-je riziko prirodzenou súčasťou náplne organizácie a jeho akceptovanie je súčasťou stratégie. Podobne existujú hrozby, voči ktorým neexistujú efektívne
-protiopatrenia alebo náklady na jej minimalizovanie presahujú hodnotu aktíva.
+\textbf{Akceptovať} riziko znamená zmieriť sa s potenciálnymi následkami naplnenia hrozby. Akceptované riziko následne monitorujeme ako zostatkové riziko.
+V niektorých prípadoch je riziko prirodzenou súčasťou činnosti organizácie a jeho akceptovanie je súčasťou stratégie. Podobne existujú hrozby, voči ktorým
+neexistujú efektívne protiopatrenia alebo náklady na jej minimalizovanie presahujú hodnotu aktíva.
 
 
 
@@ -365,9 +353,9 @@ tie najzaujímavejšie príklady.
             \hline
             \textbf{narušenie schopnosti vykonávať úlohu}
              &
-            narušenie by bolo posúdené ako znesiteľné, maximálny akceptovateľný prestoj je medzi 24 až 72 hodín
+            narušenie by bolo posúdené ako znesiteľné, maximálny akceptovateľný prestoj je medzi 24 až 72 hodinami
              &
-            narušenie by bolo posúdené ako neznesiteľné, maximálny akceptovateľný prestoj je medzi hodinou až 24 hodín
+            narušenie by bolo posúdené ako neznesiteľné, maximálny akceptovateľný prestoj je medzi hodinou až 24 hodinami
              &
             narušenie by bolo posúdené ako neakceptovateľné, maximálny akceptovateľný prestoj je menej, ako jedna hodina
             \\

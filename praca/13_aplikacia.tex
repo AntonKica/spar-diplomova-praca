@@ -1,10 +1,10 @@
 \chapter{Návrh systému}
 \label{chap:application}
 
-Analýza rizík je pomerne komplexný proces s mnohými prípravnými prácami a detailami. V našej práci sme ho v kontexte ISMS
-popísali niekoľko desiatkami strán, pričom sme vynechali rôzne drobnosti a zajačie diery\footnote{Napríklad, nespomínali sme
-\emph{risk apetite}, ochotu podstupovať riziko a ako ju vhodne zvoliť; alebo rozdiely medzi jadrovou a štandardnou ochranou.}. Dovolíme si
-usúdiť, že amatérsky riešiteľ analýzy rizík siahne po jednoduchých pomôckach na manažovanie procesu, ako sú rôzne textové a
+Analýza rizík je pomerne komplikovaný proces s mnohými prípravnými prácami a detailami. V našej práci sme ho v kontexte ISMS
+popísali niekoľko desiatkami strán, pričom sme vynechali rôzne drobnosti\footnote{Napríklad, nespomínali sme \emph{risk apetite},
+ochotu podstupovať riziko a ako ju vhodne zvoliť; alebo rozdiely medzi jadrovou a štandardnou ochranou.}. 
+Predpokladáme, že amatérsky riešiteľ analýzy rizík siahne po jednoduchých pomôckach na manažovanie procesu, ako sú rôzne textové a
 tabuľkové editory. Postupujúc podľa \cite{BSI3} si riešiteľ bude musieť vytvoriť a ustrážiť vlastný systém, poriadok a pracovný
 postup. Pre nás informatikov je to prirodzená výzva: \enquote{Nevieme navrhnúť softvérové riešenie, ktorým by sme uľahčili tento proces?}
 Samozrejme, nechceme podceňovať schopnosti ani inteligenciu riešiteľa, naopak cez systém a štrukturovaný proces mu pomôcť uchovávať
@@ -14,9 +14,9 @@ si získané informácie a ďalej s nimi efektívne pracovať.
 
 Cieľová skupina pre navrhovaný systém sú zamestnanci menšej organizácie/štátnej inštitúcie, ktorí boli poverení vykonať analýzu rizík
 (či už z vlastnej iniciatívy, povinností vyplývajúcich zo ZoKB alebo ZoITVS), túto osobu budeme nazývať zameniteľne manažér KIB (m-KIB)
-alebo používateľ. U používateľa predpokladáme základné skúsenosti s informačnými technológiami a elementárne porozumenie informačnej
-bezpečnosti\footnote{Konkrétne, rozumieť, čo to je aktívum, že môže byť nejakým spôsobom narušené, prečo a ako ho potrebujeme chŕaniť.}.
-Navrhnutý systém by mal:
+alebo používateľ (nášho systému). U používateľa predpokladáme základné skúsenosti práce s informačnými technológiami a elementárne porozumenie
+informačnej bezpečnosti\footnote{Konkrétne, rozumieť, čo to je aktívum, že môže byť nejakým spôsobom narušené, prečo a ako ho potrebujeme
+chrániť.}. Navrhnutý systém by mal:
 \begin{itemize}[nosep]
     \item usmerňovať používateľa v procese analýzy rizík
     \item postupne zbierať informácie získané v procese analýzy rizík
@@ -37,10 +37,10 @@ našou náturou, ktorá prináša inovácie do spoločnosti.
 
 \section{Implementácia}
 
-Navrhovaný systém sme sa rozhodli implementovať ako tradičnú webovú aplikáciu prístupnu cez webový prehliadač, formálne sme ju rozdelili na tri
-časti: frontend, backend a databázu, zrhnuté v tabuľke \ref{tab:swvers}. Na úseku frontend-u sme sa sme sa rozhodli použiť HTML5 v kombinácií s JavaScript frameworkom SvelteKit.
-Na backend-e sme použili programovací jazyk Rust s webovým frameworkom ActixWeb, databázovým ovládačom SQLx a knižnicou na generovanie OpenAPI utoipa.
-Ako databázu sme si vybrali relačnú databázu PostgresSQL.
+Navrhovaný systém sme sa rozhodli implementovať ako tradičnú webovú aplikáciu pristúpenú cez webový prehliadač, formálne sme ju rozdelili na tri
+časti: frontend, backend a databázu, zrhnuté v tabuľke \ref{tab:swvers}. Na úseku frontend-u sme sa sme sa rozhodli použiť HTML5 v kombinácií s
+JavaScript frameworkom SvelteKit. Na backend-e sme použili programovací jazyk Rust s webovým frameworkom ActixWeb, databázovým ovládačom SQLx a
+knižnicou na generovanie OpenAPI utoipa. Ako databázu sme si vybrali relačnú databázu PostgresSQL.
 
 \begin{table}[h!]
     \begin{center}
@@ -88,7 +88,7 @@ a v Rust-e primárne kódujeme iba menšie transformácie medzi dátovými repre
 
 \section{Užívateľské rozhranie}
 
-Webové používateľské rozhranie môžeme vidieť na obrázku \ref{fig:00-initial-screen}, prehľad strom užívateľského rozhrania môžeme
+Webové používateľské rozhranie môžeme vidieť na obrázku \ref{fig:00-initial-screen}, prehľad stromu užívateľského rozhrania môžeme
 vidieť na obrázku \ref{fig:app-ui-map}. Kompletný popis rozhrania je obsiahnutý v elektronickej prílohe, nakoľko ide o niekoľkostranový
 obrázkový dokument.
 \begin{figure}[h!]
@@ -231,7 +231,7 @@ dvojicu hrozby a modulu. Cez tabuľky \lstinline{risk_treatment_security_measure
 spájame vybranú množinu opatrení (\lstinline{security_measure}) a požiadaviek pre modul (\lstinline{it_grundschutz_module_requirement}).
 
 V tejto časti sa najviac odlišujeme od štandardu \cite{BSI3}, kde \cite{GSK} ošetruje každú kombináciu hrozby a modulu samostatne,
-čo nám prišlo pracne. Preto sme sa rozhodli rozšíriť pôsobnosť opatrení na štyri druhy. Opatrenie sa môže vzťahovať na:
+čo nám prišlo pracné. Preto sme sa rozhodli rozšíriť pôsobnosť opatrení na štyri druhy. Opatrenie sa môže vzťahovať na:
 \begin{itemize}[nosep]
     \item konkrétnu dvojicu hrozby a modulu, tu pripúšťame všetky štyri typy ošetrenia (v tomto prípade bunka)
     \item jednu konkrétnu hrozbu, tu pripúšťame všetky štyri typy ošetrenia, ktoré sa aplikujú \enquote{plošne} na každé z aktív (v tomto prípade stĺpec)
@@ -275,4 +275,5 @@ V \cite{BSI3} sa táto časť nenachádza.
 \includegraphics[width=0.7\linewidth]{images/pages/50-summary.png}
 \caption{Zhrnutie záverečných opatrení: používateľské rozhranie}
 \label{fig:50-summary}
+\subsection*{Zhrnutie návrhu systému}
 \end{figure}

@@ -13,7 +13,7 @@
 
 \usetheme[
 nogauge,
-nologo,
+%nologo,
 nomail,
 %amurmapleblue
 ]{Amurmaple}
@@ -23,7 +23,7 @@ nomail,
 \author[A.~Kica]{Bc. Anton Kica}
 \institute[FMFI]{FMFI\\Univerzita Komenského v Bratislave}
 \date{12. jún, 2026}
-\titlegraphic{\includegraphics[width=4cm]{logo.png}}
+\titlegraphic{\includegraphics[width=4cm]{images/logo.png}}
 \collaboration{školiteľ: doc. RNDr. Daniel Olejár, PhD}
 
 %\bibliography{biblio.bib}
@@ -104,7 +104,7 @@ nomail,
 \end{frame}
 \begin{frame}
 	\frametitle{vzťah legislatívy a noriem}
-	\includegraphics[width=\textwidth]{legnorm.png}
+	\includegraphics[width=\textwidth]{images/legnorm.png}
 \end{frame}
 
 \begin{frame}
@@ -127,7 +127,7 @@ nomail,
 	\frametitle{Analýzy rizík ako súčasť ISMS}
 	\begin{multicols}{2}
 		\begin{figure}
-		\includegraphics[width=0.35\textwidth]{standard-protection.png}
+		\includegraphics[width=0.35\textwidth]{images/standard-protection.png}
 		\caption{Koncept štandardnej ochrany podľa BSI 200-3}
 		\end{figure}
 		\columnbreak
@@ -141,11 +141,103 @@ nomail,
 %\include{00-.tex}
 
 \begin{frame}
-	\frametitle{navrhnutý systém}
-	Predpoklady, obsah a výsledok \ldots
+	\frametitle{Navrhnutý systém}
+	Špecifikácia, nástroje, achitektúra a výsledný \textit{proof-of-concept} \ldots
+\end{frame}
+
+\begin{frame}
+	\frametitle{Navrhnutý systém: Špecifikácia}
+	\begin{itemize}
+		\item cielená skupina je menšia organizácia
+		\item užívateľ je manažér KIB (m-KIB)
+		\item predpokladáme základné znalosti IT a porozumenie informačnej bezpečnosti
+		\item systém pomôže m-KIB:
+			\begin{itemize}
+				\item usmerňovať používateľa v procese analýzy rizík
+				\item postupne zbierať informácie získané v procese analýzy rizík
+				\item pomôcť koncentrovať údaje v databáze
+				\item zjednodušiť manipuláciu s rozsiahlym počtom hrozieb a opatrení
+				\item poskytnúť dokumentáciu zavedených bezpečnostných opatrení
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+\begin{frame}
+	\frametitle{Navrhnutý systém: Špecifikácia}
+	\begin{itemize}
+		\item predpokladamé vykonanú štrukturovaná analýzu a namodelovanie aktív
+		\item \textcolor{BlueViolet}{vstup: zoznam aktív}
+			\begin{itemize}
+				\item názov
+				\item mapovanie na modul
+				\item požiadavky na CIA
+			\end{itemize}
+		\item \textcolor{RedViolet}{výstup: zoznam opatrení}
+			\begin{itemize}
+				\item typ opatrenia
+				\item aplikované na modul? hrozbu?
+				\item popis opatrenia
+				\item stav implementácie
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+\begin{frame}
+	\frametitle{Navrhnutý systém: Nástroje a architektúra}
+	\begin{itemize}
+		\item webová aplikácia, klient a server
+		\item HTML5, JavaScript, Booststrap, SvelteKit
+		\item Rust, ActixWeb, SQLx
+		\item PostgreSQL
+	\end{itemize}
+\end{frame}
+\begin{frame}
+	\frametitle{Navrhnutý systém: Ukážka}
+	\begin{itemize}
+		\item modelová organizácia NIP
+	\end{itemize}
+\end{frame}
+\begin{frame}
+	\frametitle{}
+	\begin{itemize}
+		\item 
+	\end{itemize}
+\end{frame}
+\begin{frame}
+	\frametitle{Čo sa nám nepodarilo?}
+	\begin{itemize}
+		\item uspokojivá integrácia výkladu
+		\item systém musí m-KIB použiť za sprievodi písomnej časti alebo BSI 200-3
+	\end{itemize}
+	\begin{figure}
+	\includegraphics[width=0.65\textwidth]{images/learning-mode.png}
+	\caption{Vysvetlenie ošetrenia redukovaním prevzaté verbatim z prísomnej časti}
+	\end{figure}
+\end{frame}
+\begin{frame}
+	\frametitle{Ďalšie problémy na preskúmanie}
+	\begin{itemize}
+		\item zapracovanie bezpečnostných incidentov
+		\item kvantifikácia človekohodín a finančných nákladov
+		\item integrácia do TAXII/STIX, automatizovaná výmena informácií o hrozbách
+	\end{itemize}
+\end{frame}
+\begin{frame}
+	\frametitle{Zhrnutie a záver}
+	\begin{itemize}
+		\item vysvetlili sme analýzu rizík
+		\item implementovali sme \textit{proof-of-concept} SPAR
+		\item získali sme prehľad na implementáciu plnohodnotného systému
+		\item identifikovali sme ďalšie potenciálne problémy na preskúmanie
+	\end{itemize}
 \end{frame}
 
 \begin{frame}
 	\frametitle{ďakujem za pozornosť}
+\end{frame}
+\begin{frame}
+	\frametitle{Odpoveďe na otázky oponenta}
+\end{frame}
+\begin{frame}
+	\frametitle{Diskusia}
+	Sú nejaké otázky?
 \end{frame}
 \end{document}

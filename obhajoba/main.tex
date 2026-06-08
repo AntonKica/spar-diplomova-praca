@@ -1,0 +1,151 @@
+\documentclass[11pt,xcolor={dvipsnames},hyperref={pdftex,pdfpagemode=UseNone,hidelinks,pdfdisplaydoctitle=true},usepdftitle=false]{beamer}
+
+\usepackage{microtype}
+\usepackage[slovak]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{multicol}
+\usepackage[export]{adjustbox}
+\usepackage{svg}
+
+\usetheme[
+nogauge,
+nologo,
+nomail,
+%amurmapleblue
+]{Amurmaple}
+
+
+\title[SPAR]{SPAR - Systém na podporu analýzy rizík}
+\author[A.~Kica]{Bc. Anton Kica}
+\institute[FMFI]{FMFI\\Univerzita Komenského v Bratislave}
+\date{12. jún, 2026}
+\titlegraphic{\includegraphics[width=4cm]{logo.png}}
+\collaboration{školiteľ: doc. RNDr. Daniel Olejár, PhD}
+
+%\bibliography{biblio.bib}
+\usefonttheme{serif}
+
+\begin{document}
+
+\maketitle
+%\sepframe[title={Obsah}]
+
+\begin{frame}
+	\frametitle{Čo to je KIB?}
+	\textit{Kybernetická a informačná bezpečnosť} (KIB) je multidisciplinárna oblasť zaoberajúca sa skúmaním hrozieb voči informáciám,
+	informačným systémom a sieťam a návrhom riešení, ktoré by naplneniu hrozieb zamedzili alebo aspoň zmiernili ich dopad.
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Prečo sa zaoberáme KIB?}
+	\begin{itemize}
+		\item potrebujeme ochraňovať aktíva pred (ne)úmyselnými hrozbami
+		\item najmä základné hodnoty: dôvernosť, integritu a dostupnosť
+		\item riešime z dôvodu:
+			\begin{itemize}
+				\item vlastná potreba obmedziť neželané negatívne potenciálne dopady hrozieb
+				\item povinnosti KIB vyplyvajúce z legislatívy Slovenskej republiky (ZoKB a ZoITVS) a Európskej únie (NIS2)
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+\begin{frame}
+	\frametitle{Ako môžeme riešiť KIB?}
+	\begin{itemize}
+		\item technické pomôcky, HW, SW
+		\item manažérske/organizačné procesy \textbf{$\leftarrow$ naše zameranie}
+	\end{itemize}
+	\begin{figure}
+		\includegraphics[height=4cm]{images/ISO-27000-Hero-2.jpg}
+	\end{figure}
+\end{frame}
+\begin{frame}
+	\frametitle{Naša motivácia}
+	\begin{itemize}
+		\item nedostatok odborníkov na pokrytie verejných inštitúcii SR (cca. 20 000)
+		\item objektívne hrozby, ktoré boli nedávno naplnené
+		\item vieme pomôcť laikovi manažérovi KIB splniť si svoje povinnosti?
+		\item v bakalárskej práci: čo to znamená vytvoriť systém na pomoc pri zavádzaní ISMS?
+		\item \textbf{v diplomovej práci}: čo to znamená vytvoriť systém na analýzu rizík?
+	\end{itemize}
+\end{frame}
+\begin{frame}
+	\frametitle{Ciele}
+	\begin{enumerate}
+		\item \textcolor{Orange}{vysvetlenie zákonných povinností}
+		\item \textcolor{OliveGreen}{popísať postup AR}
+		\item \textcolor{OliveGreen}{pomôcť pre aktívum vykonať AR}
+		\item \textcolor{OliveGreen}{dokumentácia procesu AR}
+	\end{enumerate}
+\end{frame}
+\begin{frame}
+	\frametitle{Cieľ: vysvetlenie zákonných povinností}
+	\begin{itemize}
+		\item nepodarilo sa nám splniť
+		\item veľká dynamika, NIS2
+		\item novelizácia ZoKB cez 318/2025 Z. z., november 2025
+		\item novelizácia ZoITVS cez 67/2026 Z. z., apríl 2026
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Medzinárodné normy a analýza rizík}
+	\begin{itemize}
+		\item existuje niekoľko noriem a štandardov zaoberajúce sa KIB
+		\item séria ISO/IEC 27000
+		\item špeciálne publikácie NIST 800
+		\item \textbf{metodika BSI IT-Grundschutz}
+	\end{itemize}
+\end{frame}
+\begin{frame}
+	\frametitle{vzťah legislatívy a noriem}
+	\includegraphics[width=\textwidth]{legnorm.png}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Čo to je analýza rizík?}
+	\begin{itemize}
+		\item v organizácií/inštutúcií máme aktíva
+		\item aktíva majú požiadavky na ochranu základných hodnôť CIA (dôvernosti, integrity a dostupnosti)
+		\item hrozby ohrozujú aktíva, potenciálne riziko
+		\item riziká potrebujeme ošetriť, znížiť na prijateľnú úroveň
+		\item podľa BSI 200-3 proces z krokov:
+			\begin{enumerate}
+				\item identifikácia hrozieb
+				\item klasifikácia rizík
+				\item ošetrenie rizík
+				\item konsolidácia
+			\end{enumerate}
+	\end{itemize}
+\end{frame}
+\begin{frame}
+	\frametitle{Analýzy rizík ako súčasť ISMS}
+	\begin{multicols}{2}
+		\begin{figure}
+		\includegraphics[width=0.35\textwidth]{standard-protection.png}
+		\caption{Koncept štandardnej ochrany podľa BSI 200-3}
+		\end{figure}
+		\columnbreak
+		\begin{itemize}
+			\item systém riadenia informačnej bezpečnosti (ISMS)
+			\item systematické riešenie KIB v organizácii
+			\item politika, manažér KIB, bezpečnostné roly, opatrenia \ldots
+		\end{itemize}
+	\end{multicols}
+\end{frame}
+%\include{00-.tex}
+
+\begin{frame}
+	\frametitle{navrhnutý systém}
+	Predpoklady, obsah a výsledok \ldots
+\end{frame}
+
+\begin{frame}
+	\frametitle{ďakujem za pozornosť}
+\end{frame}
+\end{document}

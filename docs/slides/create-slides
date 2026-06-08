@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if [[ $# -ne 1 ]]; then
   echo "missing name, example usage: $0 <YYYY-MM-DD>"

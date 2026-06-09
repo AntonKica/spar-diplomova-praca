@@ -9,7 +9,7 @@
 \usepackage{subcaption}
 \usepackage{multicol}
 \usepackage[export]{adjustbox}
-\usepackage{svg}
+\usepackage[normalem]{ulem}
 
 \usetheme[
 nogauge,
@@ -191,15 +191,136 @@ nomail,
 \end{frame}
 \begin{frame}
 	\frametitle{Navrhnutý systém: Ukážka}
-	\begin{itemize}
-		\item modelová organizácia NIP
-	\end{itemize}
+	\begin{figure}
+		\includegraphics[width=\textwidth]{images/wf/0-asset.png}
+	\end{figure}
 \end{frame}
 \begin{frame}
-	\frametitle{}
-	\begin{itemize}
-		\item 
-	\end{itemize}
+	\frametitle{Navrhnutý systém: Zoznam analýz}
+	\begin{figure}
+		\includegraphics[width=\textwidth]{images/wf/spar.png}
+	\end{figure}
+\end{frame}
+\begin{frame}
+	\frametitle{Navrhnutý systém: Proces analýzy rizík}
+	\begin{figure}
+		\includegraphics[width=0.9\textwidth]{images/wf/0-ra.png}
+	\end{figure}
+\end{frame}
+\begin{frame}
+	\frametitle{1. Identifikácia hrozieb: katalog hrozieb}
+	\begin{figure}
+		\includegraphics[width=\textwidth]{images/wf/01-thrid.png}
+	\end{figure}
+\end{frame}
+\begin{frame}
+\frametitle{1. Identifikácia hrozieb: špecifická hrozba}
+	\begin{figure}
+		\includegraphics[height=6cm]{images/wf/02-spfthr.png}
+	\end{figure}
+\end{frame}
+\begin{frame}
+\frametitle{1. Identifikácia hrozieb: prehľad}
+	\begin{figure}
+		\includegraphics[width=\textwidth]{images/wf/03-thrsummary.png}
+	\end{figure}
+\end{frame}
+\begin{frame}
+\frametitle{2. Klasifikácia rizík: aktívum a hrozba}
+	\begin{figure}
+		\includegraphics[height=6cm]{images/wf/11-classification.png}
+	\end{figure}
+\end{frame}
+\begin{frame}
+\frametitle{2. Klasifikácia rizík: prehľad}
+	\begin{figure}
+		\includegraphics[width=0.9\textwidth]{images/wf/12-riskoverview.png}
+	\end{figure}
+\end{frame}
+\begin{frame}
+\frametitle{3. Ošetrenie rizík: prehľad}
+	\begin{figure}
+		\includegraphics[width=\textwidth]{images/wf/24-overview.png}
+	\end{figure}
+\end{frame}
+\begin{frame}
+\frametitle{3. Ošetrenie rizík: opatrenia modulu}
+	\begin{figure}
+		\includegraphics[width=0.9\textwidth]{images/wf/23-modtrm.png}
+	\end{figure}
+\end{frame}
+\begin{frame}
+\frametitle{3. Ošetrenie rizík: akceptovanie}
+	\begin{figure}
+		\includegraphics[width=0.9\textwidth]{images/wf/22-riskaccept.png}
+	\end{figure}
+\end{frame}
+\begin{frame}
+\frametitle{4. Kontrola IT-Grundschutz}
+	\begin{figure}
+		\includegraphics[width=0.9\textwidth]{images/wf/31-check.png}
+	\end{figure}
+\end{frame}
+\begin{frame}
+\frametitle{5. Zhrnutie opatrení}
+	\begin{figure}
+		\includegraphics[width=0.9\textwidth]{images/wf/41-result.png}
+	\end{figure}
+\end{frame}
+\newcommand\pro{\item[\textcolor{PineGreen}{$+$}]}
+\begin{frame}[allowframebreaks]
+	\frametitle{Porovnanie s BSI 200-3}
+	\begin{enumerate}
+		\item Identifikácia relevantných hrozieb per aktívum
+			\begin{itemize}
+				\item elementárne hrozby
+				\item špecifické hrozby
+			\end{itemize}
+		\item Klasifikácia rizík per aktívum a hrozbu
+			\begin{itemize}
+				\item kvalitatívne; frekvencia a dopad $\rightarrow$ riziko
+			\end{itemize}
+		\item Ošetrenie rizík per aktívum a hrozbu
+			\begin{itemize}
+				\item akceptovaním, vyhnutím sa, redukovanim alebo prenesením
+			\end{itemize}
+		\item Kontrola IT-Grundschutz per opatrenie
+			\begin{itemize}
+				\item implementované, neimplementované, čiastočne alebo redundantné
+			\end{itemize}
+		\item Zhrnutie opatrení
+	\end{enumerate}
+	\pagebreak
+	\begin{enumerate}
+		 \pro granularita akvívum $\rightarrow$ modul
+		 \pro kopírovanie postupu
+	\end{enumerate}
+	\begin{enumerate}
+		\item Identifikácia relevantných hrozieb per \textcolor{PineGreen}{modul}
+			\begin{itemize}
+				\item elementárne hrozby \textcolor{PineGreen}{explicitne rozdelené na priame a nepriame}
+				\item špecifické hrozby
+				\pro kategorizácia podľa 27005
+			\end{itemize}
+		\item Klasifikácia rizík per \textcolor{PineGreen}{modul} a hrozbu
+			\begin{itemize}
+				\item kvalitatívne; frekvencia a dopad $\rightarrow$ riziko
+				\pro tabuľka na relativizáciu rizík
+			\end{itemize}
+		\pagebreak
+		\item Ošetrenie rizík \sout{\textcolor{Red}{aktívum a hrozbu}}
+			\begin{itemize}
+				\pro modul a hrozba: akceptovaním, vyhnutím sa, redukovanim alebo prenesením
+				\pro hrozba: akceptovaním, vyhnutím sa, redukovanim alebo prenesením
+				\pro modul: redukovaním z katalógu GSK
+				\pro plošne: redukovaním
+			\end{itemize}
+		\item Kontrola IT-Grundschutz per opatrenie
+			\begin{itemize}
+				\item implementované, neimplementované, čiastočne alebo redundantné
+			\end{itemize}
+		\item \textcolor{PineGreen}{Zhrnutie opatrení}
+	\end{enumerate}
 \end{frame}
 \begin{frame}
 	\frametitle{Čo sa nám nepodarilo?}
@@ -208,8 +329,8 @@ nomail,
 		\item systém musí m-KIB použiť za sprievodi písomnej časti alebo BSI 200-3
 	\end{itemize}
 	\begin{figure}
-	\includegraphics[width=0.65\textwidth]{images/learning-mode.png}
-	\caption{Vysvetlenie ošetrenia redukovaním prevzaté verbatim z prísomnej časti}
+		\includegraphics[width=0.65\textwidth]{images/learning-mode.png}
+		\caption{Vysvetlenie ošetrenia redukovaním prevzaté verbatim z prísomnej časti}
 	\end{figure}
 \end{frame}
 \begin{frame}
